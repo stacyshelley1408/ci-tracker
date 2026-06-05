@@ -5,6 +5,9 @@ on:
     - cron: "0 15 * * *"  # 11am ET (UTC-4 EDT)
   workflow_dispatch:        # allow manual trigger for testing
 
+permissions:
+  contents: write
+
 jobs:
   run:
     runs-on: ubuntu-22.04
@@ -64,6 +67,7 @@ jobs:
           # Copy updated snapshots and events back in
           git checkout ${{ github.sha }} -- snapshots/ 2>/dev/null || true
           git checkout ${{ github.sha }} -- data/ 2>/dev/null || true
+          git checkout ${{ github.sha }} -- .gitignore 2>/dev/null || true
 
           git add -A
           if git diff --cached --quiet; then

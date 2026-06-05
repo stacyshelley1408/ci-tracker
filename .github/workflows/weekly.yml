@@ -5,6 +5,9 @@ on:
     - cron: "0 14 * * 1"  # 10am ET Monday (UTC-4 EDT) — before daily run
   workflow_dispatch:        # allow manual trigger for testing
 
+permissions:
+  contents: write
+
 jobs:
   run:
     runs-on: ubuntu-22.04
@@ -62,6 +65,7 @@ jobs:
 
           git checkout ${{ github.sha }} -- snapshots/ 2>/dev/null || true
           git checkout ${{ github.sha }} -- data/ 2>/dev/null || true
+          git checkout ${{ github.sha }} -- .gitignore 2>/dev/null || true
 
           git add -A
           if git diff --cached --quiet; then
