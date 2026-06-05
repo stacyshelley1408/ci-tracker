@@ -55,6 +55,11 @@ jobs:
           git config user.name "ci-tracker"
           git config user.email "ci-tracker@github-actions"
 
+          # Save generated files before switching branches
+          mkdir -p /tmp/ci-data
+          cp -r snapshots /tmp/ci-data/ 2>/dev/null || true
+          cp -r data /tmp/ci-data/ 2>/dev/null || true
+
           # Switch to or create the data branch
           git fetch origin data 2>/dev/null || true
           if git show-ref --verify --quiet refs/remotes/origin/data; then
@@ -64,10 +69,11 @@ jobs:
             git rm -rf . 2>/dev/null || true
           fi
 
-          # Copy updated snapshots and events back in
-          git checkout ${{ github.sha }} -- snapshots/ 2>/dev/null || true
-          git checkout ${{ github.sha }} -- data/ 2>/dev/null || true
-          git checkout ${{ github.sha }} -- .gitignore 2>/dev/null || true
+          # Restore generated files and .gitignore
+          cp -r /tmp/ci-data/snapshots . 2>/dev/null || true
+          cp -r /tmp/ci-data/data . 2>/dev/null || true
+          cp .gitignore /tmp/ci-gitignore 2>/dev/null || true
+          git checkout origin/master -- .gitignore 2>/dev/null || cp /tmp/ci-gitignore .gitignore 2>/dev/null || true
 
           git add -A
           if git diff --cached --quiet; then
