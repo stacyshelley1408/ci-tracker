@@ -1,0 +1,518 @@
+[
+  {
+    "title": "AI-First Connected GRC",
+    "url": "/products/connected-grc.htm"
+  },
+  {
+    "title": "Enterprise Risk",
+    "url": "/products/enterprise-risk-management.htm"
+  },
+  {
+    "title": "Operational Risk",
+    "url": "/products/operational-risk-management.htm"
+  },
+  {
+    "title": "Compliance",
+    "url": "/products/compliance-management.htm"
+  },
+  {
+    "title": "Policy",
+    "url": "/products/policy-and-document-management.htm"
+  },
+  {
+    "title": "Regulatory Compliance",
+    "url": "/products/regulatory-compliance.htm"
+  },
+  {
+    "title": "Regulatory Change",
+    "url": "/products/regulatory-change-management.htm"
+  },
+  {
+    "title": "Case and Incident",
+    "url": "/products/case-and-incident-management.htm"
+  },
+  {
+    "title": "Regulatory Engagement",
+    "url": "/products/regulatory-engagement-management.htm"
+  },
+  {
+    "title": "Audit & Controls",
+    "url": "/products/internal-audit-financial-controls.htm"
+  },
+  {
+    "title": "Internal Audit",
+    "url": "/products/internal-audit-management.htm"
+  },
+  {
+    "title": "SOX Compliance",
+    "url": "/products/sox-compliance-management.htm"
+  },
+  {
+    "title": "Cyber GRC",
+    "url": "/products/cyber-grc.htm"
+  },
+  {
+    "title": "IT & Cyber Risk",
+    "url": "/products/it-and-cyber-risk-management.htm"
+  },
+  {
+    "title": "IT & Cyber Compliance",
+    "url": "/products/it-and-cyber-compliance-management.htm"
+  },
+  {
+    "title": "IT & Cyber Policy",
+    "url": "/products/it-cyber-policy.htm"
+  },
+  {
+    "title": "Vendor Risk",
+    "url": "/products/it-vendor-third-party.htm"
+  },
+  {
+    "title": "Third-Party Risk",
+    "url": "/products/third-party-management.htm"
+  },
+  {
+    "title": "Resilience",
+    "url": "/products/operational-resilience.htm"
+  },
+  {
+    "title": "Operational Resilience",
+    "url": "/products/operational-resilience.htm"
+  },
+  {
+    "title": "Business Continuity",
+    "url": "/products/business-continuity-management.htm"
+  },
+  {
+    "title": "AiSPIRE",
+    "url": "/products/AiSPIRE.html"
+  },
+  {
+    "title": "Platform",
+    "url": "/platform.htm"
+  },
+  {
+    "title": "Cloud",
+    "url": "/platform/metricstream-cloud.htm"
+  },
+  {
+    "title": "AppStudio",
+    "url": "/platform/appstudio.htm"
+  },
+  {
+    "title": "Analytics",
+    "url": "/platform/analytics.htm"
+  },
+  {
+    "title": "Integration",
+    "url": "/platform/apis.htm"
+  },
+  {
+    "title": "Marketplace",
+    "url": "/platform/marketplace.html"
+  },
+  {
+    "title": "MetricStream Ranked #1 in Operational Risk and Audit Categories",
+    "url": "https://www.metricstream.com/pressNews/operational-risk-audit-top-risktech-ai-companies-in-the-world-in-chartis.html"
+  },
+  {
+    "title": "Solutions",
+    "url": "#"
+  },
+  {
+    "title": "Enterprise GRC",
+    "url": "/solutions/governance-risk-and-compliance.htm"
+  },
+  {
+    "title": "Integrated Risk Management",
+    "url": "/solutions/integrated-risk.htm"
+  },
+  {
+    "title": "Cybersecurity Risk Management",
+    "url": "/solutions/cybersecurity.htm"
+  },
+  {
+    "title": "Corporate Compliance",
+    "url": "/solutions/corporate-compliance.htm"
+  },
+  {
+    "title": "Supplier Risk and Performance",
+    "url": "/solutions/supplier-risk-and-performance.htm"
+  },
+  {
+    "title": "UK SOX Compliance",
+    "url": "/solutions/uk-sox-compliance.htm"
+  },
+  {
+    "title": "Privacy Compliance",
+    "url": "/solutions/privacy-compliance.htm"
+  },
+  {
+    "title": "IDW PS 340 n.F.",
+    "url": "/solutions/idw.html"
+  },
+  {
+    "title": "Frameworks",
+    "url": "#"
+  },
+  {
+    "title": "HIPAA",
+    "url": "/framework/hipaa-compliance.html"
+  },
+  {
+    "title": "PCI DSS",
+    "url": "/framework/pci-compliance.html"
+  },
+  {
+    "title": "Industries",
+    "url": "#"
+  },
+  {
+    "title": "Banking and Financial Services",
+    "url": "/industries/banking-and-financial-services.htm"
+  },
+  {
+    "title": "Energy",
+    "url": "/industries/energy.html"
+  },
+  {
+    "title": "Healthcare",
+    "url": "/industries/healthcare.html"
+  },
+  {
+    "title": "Insurance",
+    "url": "/industries/insurance.htm"
+  },
+  {
+    "title": "Life Sciences",
+    "url": "/industries/life-sciences.htm"
+  },
+  {
+    "title": "Technology",
+    "url": "/industries/technology.html"
+  },
+  {
+    "title": "Telecom",
+    "url": "/industries/telecom.htm"
+  },
+  {
+    "title": "Utilities",
+    "url": "/industries/utilities.htm"
+  },
+  {
+    "title": "Customers",
+    "url": "#"
+  },
+  {
+    "title": "Customer Stories",
+    "url": "/customers/our-customers.htm"
+  },
+  {
+    "title": "GRC Journey",
+    "url": "/customers/grc-journey.htm"
+  },
+  {
+    "title": "Training & Certification",
+    "url": "https://www.metricstreamuniversity.com/"
+  },
+  {
+    "title": "Robert Taylor from LSEG shares his experience on implementing an integrated GRC program with MetricStream",
+    "url": "https://www.metricstream.com/grc-summit/london-2022/grc-program-excellence-award-lseg.html"
+  },
+  {
+    "title": "Partners",
+    "url": "#"
+  },
+  {
+    "title": "Overview",
+    "url": "/partners/overview.htm"
+  },
+  {
+    "title": "Our Partners",
+    "url": "/partners/our-partners.htm"
+  },
+  {
+    "title": "Join Now",
+    "url": "https://info.metricstream.com/connect-with-partners.html?utm_source=menu"
+  },
+  {
+    "title": "Watch Lucia Roncakova from Deloitte Central Europe, speak on how the partnership with MetricStream provides collaborative GRC solutions",
+    "url": "https://www.metricstream.com/videos/grc-award-partner-winner-deloitte-central-europe.html"
+  },
+  {
+    "title": "Featured Resources",
+    "url": "/insights-search"
+  },
+  {
+    "title": "Analyst Reports",
+    "url": "/insights-search?field_resource_type_target_id=44"
+  },
+  {
+    "title": "Articles",
+    "url": "/insights-search?field_resource_type_target_id=48"
+  },
+  {
+    "title": "Case Studies",
+    "url": "/insights-search?field_resource_type_target_id=43"
+  },
+  {
+    "title": "eBooks",
+    "url": "/insights-search?field_resource_type_target_id=42"
+  },
+  {
+    "title": "Infographics",
+    "url": "/insights-search?field_resource_type_target_id=486"
+  },
+  {
+    "title": "Product Overviews",
+    "url": "/insights-search?field_resource_type_target_id=46"
+  },
+  {
+    "title": "Solution Briefs",
+    "url": "/insights-search?field_resource_type_target_id=47"
+  },
+  {
+    "title": "Videos",
+    "url": "/insights-search?field_resource_type_target_id=53"
+  },
+  {
+    "title": "Whitepapers",
+    "url": "/insights-search?field_resource_type_target_id=45"
+  },
+  {
+    "title": "Webinars",
+    "url": "/about-us/events.htm#webinars"
+  },
+  {
+    "title": "Learn",
+    "url": "/insights/learn"
+  },
+  {
+    "title": "Explore the forces reshaping governance, risk, and compliance in 2026",
+    "url": "https://info.metricstream.com/trends-shaping-grc-in-2026-and-beyond.html"
+  },
+  {
+    "title": "Company",
+    "url": "#"
+  },
+  {
+    "title": "Newsroom",
+    "url": "/about-us/newsroom.htm"
+  },
+  {
+    "title": "GRC Summit",
+    "url": "/grc-summit/london-2026.html"
+  },
+  {
+    "title": "Events",
+    "url": "/about-us/events.htm"
+  },
+  {
+    "title": "Careers",
+    "url": "/about-us/careers.htm"
+  },
+  {
+    "title": "Gurjeev Sanghera from Shell explains why they chose MetricStream to advance on the GRC journey",
+    "url": "https://www.metricstream.com/grc-summit/london-2022/grc-program-excellence-award-shell.html"
+  },
+  {
+    "title": "Request Demo",
+    "url": "https://info.metricstream.com/get-a-demo.html"
+  },
+  {
+    "title": "Custom 404",
+    "url": "/404.html"
+  },
+  {
+    "title": "Products",
+    "url": "#"
+  },
+  {
+    "title": "ConnectedGRC",
+    "url": "/products/connected-grc.htm"
+  },
+  {
+    "title": "Resources",
+    "url": "#"
+  },
+  {
+    "title": "IT Compliance",
+    "url": "/products/it-and-cyber-compliance-management.htm"
+  },
+  {
+    "title": "Compliance Management",
+    "url": "/products/compliance-management.htm"
+  },
+  {
+    "title": "IT Risk",
+    "url": "/products/it-and-cyber-risk-management.htm"
+  },
+  {
+    "title": "Regulatory Change Management",
+    "url": "/products/regulatory-change-management.htm"
+  },
+  {
+    "title": "Subscribe Now",
+    "url": "/about-us/subscribe.html"
+  },
+  {
+    "title": "Let\u2019s talk",
+    "url": "/about-us/lets-talk.html"
+  },
+  {
+    "title": "Connected GRC",
+    "url": "/products/connected-grc.htm"
+  },
+  {
+    "title": "Enterprise Risk Management Software",
+    "url": "/products/enterprise-risk-management.htm"
+  },
+  {
+    "title": "Operational Risk Management Software",
+    "url": "/products/operational-risk-management.htm"
+  },
+  {
+    "title": "Policy Management Software",
+    "url": "/products/policy-and-document-management.htm"
+  },
+  {
+    "title": "Regulatory Compliance Management Software",
+    "url": "/products/compliance-management.htm"
+  },
+  {
+    "title": "Regulatory Change Management Software",
+    "url": "/products/regulatory-change-management.htm"
+  },
+  {
+    "title": "Case and Incident Management Software",
+    "url": "/products/case-and-incident-management.htm"
+  },
+  {
+    "title": "Regulatory Engagement Management Software",
+    "url": "/products/regulatory-engagement-management.htm"
+  },
+  {
+    "title": "Internal Audit Management Software",
+    "url": "/products/internal-audit-management.htm"
+  },
+  {
+    "title": "SOX Compliance Management Software",
+    "url": "/products/sox-compliance-management.htm"
+  },
+  {
+    "title": "IT & Cyber Risk Management Software",
+    "url": "/products/it-and-cyber-risk-management.htm"
+  },
+  {
+    "title": "IT & Cyber Compliance Management Software",
+    "url": "/products/it-and-cyber-compliance-management.htm"
+  },
+  {
+    "title": "IT & Cyber Policy Management Software",
+    "url": "/products/it-cyber-policy.htm"
+  },
+  {
+    "title": "Vendor Risk Management Software",
+    "url": "/products/it-vendor-third-party.htm"
+  },
+  {
+    "title": "Operational Resilience Management Software",
+    "url": "/products/operational-resilience.htm"
+  },
+  {
+    "title": "Business Continuity Management Software",
+    "url": "/products/business-continuity-management.htm"
+  },
+  {
+    "title": "Enterprise GRC Solution",
+    "url": "/solutions/governance-risk-and-compliance.htm"
+  },
+  {
+    "title": "Integrated Risk Management Solution",
+    "url": "/solutions/integrated-risk.htm"
+  },
+  {
+    "title": "Cybersecurity Risk Management Solution",
+    "url": "/solutions/cybersecurity.htm"
+  },
+  {
+    "title": "Corporate Compliance Management Solution",
+    "url": "/solutions/corporate-compliance.htm"
+  },
+  {
+    "title": "Supplier Risk and Performance Management Solution",
+    "url": "/solutions/supplier-risk-and-performance.htm"
+  },
+  {
+    "title": "Digital Operational Resilience Act (DORA) Solution",
+    "url": "/solutions/digital-risk.htm"
+  },
+  {
+    "title": "UK SOX Compliance Management Solution",
+    "url": "/solutions/uk-sox-compliance.htm"
+  },
+  {
+    "title": "Privacy Compliance Management Solution",
+    "url": "/solutions/privacy-compliance.htm"
+  },
+  {
+    "title": "IDW PS 340 n.F. Solution",
+    "url": "/solutions/idw.html"
+  },
+  {
+    "title": "What is GRC?",
+    "url": "/learn/what-is-grc.html"
+  },
+  {
+    "title": "What is ERM?",
+    "url": "/learn/what-is-enterprise-risk-management.html"
+  },
+  {
+    "title": "What is Operational Risk Management?",
+    "url": "/learn/what-is-operational-risk-management.html"
+  },
+  {
+    "title": "What is IT & Cyber Compliance Management?",
+    "url": "/learn/ultimate-guide-cyber-security-and-it-cyber-risk.html"
+  },
+  {
+    "title": "What is Regulatory Compliance?",
+    "url": "/learn/comprehensive-guide-to-regulatory-compliance.htm"
+  },
+  {
+    "title": "Customer Agreements & Releases",
+    "url": "/customer-agreements"
+  },
+  {
+    "title": "Privacy Policy",
+    "url": "/about-us/privacy-policy.htm"
+  },
+  {
+    "title": "Trust Center |",
+    "url": "/about-us/trust-center.htm"
+  },
+  {
+    "title": "Legal",
+    "url": "/legal.html"
+  },
+  {
+    "title": "Slavery Statement",
+    "url": "https://assets.metricstream.com/pdf/contracts/Modern-Slavery-Statement.pdf"
+  },
+  {
+    "title": "Learn More",
+    "url": "#!/LearnMore"
+  },
+  {
+    "title": "MetricStream Platform",
+    "url": "https://www.metricstream.com/platform.htm"
+  },
+  {
+    "title": "Our Customers",
+    "url": "https://www.metricstream.com/customers/our-customers.htm"
+  },
+  {
+    "title": "Legal |",
+    "url": "https://www.metricstream.com/legal.html"
+  }
+]
