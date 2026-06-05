@@ -75,7 +75,12 @@ jobs:
           cp .gitignore /tmp/ci-gitignore 2>/dev/null || true
           git checkout origin/master -- .gitignore 2>/dev/null || cp /tmp/ci-gitignore .gitignore 2>/dev/null || true
 
+          # Ensure data/events.json exists even if no events fired
+          mkdir -p data
+          [ -f data/events.json ] || echo "[]" > data/events.json
+
           git add -A
+          git add -f snapshots/ 2>/dev/null || true  # force-add gitignored snapshots
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
