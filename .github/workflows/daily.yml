@@ -1,0 +1,73 @@
+name: Daily CI Run
+
+on:
+  schedule:
+    - cron: "0 15 * * *"  # 11am ET (UTC-4 EDT)
+  workflow_dispatch:        # allow manual trigger for testing
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Restore snapshots from data branch
+        run: |
+          git fetch origin data 2>/dev/null || echo "No data branch yet — first run"
+          if git show-ref --verify --quiet refs/remotes/origin/data; then
+            git checkout origin/data -- snapshots/ 2>/dev/null || echo "No snapshots dir yet"
+            git checkout origin/data -- data/ 2>/dev/null || echo "No data dir yet"
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: Run daily signals and alerts
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: |
+          cd src && python run.py --mode daily
+
+      - name: Commit snapshots and events to data branch
+        run: |
+          git config user.name "ci-tracker"
+          git config user.email "ci-tracker@github-actions"
+
+          # Switch to or create the data branch
+          git fetch origin data 2>/dev/null || true
+          if git show-ref --verify --quiet refs/remotes/origin/data; then
+            git checkout -b data origin/data
+          else
+            git checkout --orphan data
+            git rm -rf . 2>/dev/null || true
+          fi
+
+          # Copy updated snapshots and events back in
+          git checkout ${{ github.sha }} -- snapshots/ 2>/dev/null || true
+          git checkout ${{ github.sha }} -- data/ 2>/dev/null || true
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "ci: daily run ${{ github.run_id }}"
+            git push origin data
+          fi

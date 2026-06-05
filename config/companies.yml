@@ -1,0 +1,264 @@
+defaults:
+  active: true
+  significance_threshold: 4
+  watch_keywords: []
+  signals:
+    messaging_diffs:
+      alert: weekly
+      include_in_digest: true
+    job_postings:
+      alert: weekly
+      include_in_digest: true
+      filters:
+        departments: []
+        seniority: []
+    news:
+      alert: daily
+      include_in_digest: true
+    reviews:
+      alert: weekly
+      include_in_digest: true
+      platforms:
+        - g2
+        - gartner_peer_insights
+        - capterra
+        - trustradius
+        - peerspot
+        - spiceworks
+    reddit:
+      alert: daily
+      include_in_digest: true
+      subreddits:
+        - msp
+        - sysadmin
+        - cybersecurity
+        - networking
+        - riskmanagement
+        - compliance
+      search_terms: []
+
+companies:
+  - name: Archer IRM
+    base_url: https://www.archerirm.com
+    active: true
+    significance_threshold: 3
+    watch_keywords:
+      - Evolv
+      - ServiceNow
+      - AI governance
+      - funding
+      - acquisition
+      - Cinven
+      - GRC
+      - category
+    signals:
+      job_postings:
+        alert: daily
+        filters:
+          departments:
+            - marketing
+            - product
+            - engineering
+            - sales
+          seniority:
+            - director
+            - vp
+            - head
+            - chief
+      reddit:
+        search_terms:
+          - "Archer IRM"
+          - "Archer GRC"
+          - "Archer vs"
+          - "integrated risk management"
+          - "GRC platform"
+      reviews:
+        platforms:
+          - g2
+          - gartner_peer_insights
+          - capterra
+          - trustradius
+          - peerspot
+    pages:
+      - url: /
+      - url: /evolv
+      - url: /evolv-compliance
+      - url: /evolv-risk
+      - url: /evolv-intelligence
+      - url: /ai-governance
+      - url: /analyst-reports
+      - url: /latest-news
+      - url: /about-us
+        alert: weekly
+      - url: /clients
+        alert: weekly
+      - url: /enterprise-operational-risk
+        alert: weekly
+      - url: /it-security-risk-management
+        alert: weekly
+      - url: /third-party-governance
+        alert: weekly
+      - url: /esg
+        alert: weekly
+    careers_url: https://www.archerirm.com/careers
+    news_feeds: []  # no RSS feed found; /latest-news is monitored as a Tier 1 page diff instead
+    review_urls:
+      g2: https://www.g2.com/products/archer-integrated-risk-management/reviews
+      gartner_peer_insights: https://www.gartner.com/reviews/market/integrated-risk-management/vendor/archer/product/archer
+      capterra: https://www.capterra.com/p/archer-irm/
+      trustradius: https://www.trustradius.com/products/archer-integrated-risk-management-platform/reviews
+      peerspot: https://www.peerspot.com/products/archer-irm-reviews
+
+  - name: ServiceNow GRC
+    base_url: https://www.servicenow.com
+    active: true
+    significance_threshold: 4
+    watch_keywords:
+      - GRC
+      - risk
+      - compliance
+      - IRM
+      - AI
+      - pricing
+      - acquisition
+    signals:
+      reviews:
+        platforms:
+          - g2
+          - gartner_peer_insights
+          - trustradius
+          - peerspot
+    pages:
+      - url: /solutions/governance-risk-compliance.html
+      - url: /products/governance-risk-and-compliance.html
+      - url: /products/integrated-risk-management.html
+    careers_url: https://www.servicenow.com/company/careers.html
+    news_feeds:
+      - https://www.servicenow.com/blogs/feed/
+    review_urls:
+      g2: https://www.g2.com/products/servicenow-risk-and-compliance/reviews
+      gartner_peer_insights: https://www.gartner.com/reviews/market/integrated-risk-management/vendor/servicenow
+      trustradius: https://www.trustradius.com/products/servicenow-grc/reviews
+      peerspot: https://www.peerspot.com/products/servicenow-grc-reviews
+
+  - name: MetricStream
+    base_url: https://www.metricstream.com
+    active: true
+    significance_threshold: 4
+    watch_keywords:
+      - AI
+      - GRC
+      - risk
+      - compliance
+      - funding
+      - acquisition
+    signals:
+      reviews:
+        platforms:
+          - g2
+          - gartner_peer_insights
+          - trustradius
+          - peerspot
+    pages:
+      - url: /
+      - url: /products/
+      - url: /solutions/
+    careers_url: https://www.metricstream.com/company/careers.htm
+    news_feeds:
+      - https://www.metricstream.com/insights/feed/
+    review_urls:
+      g2: https://www.g2.com/products/metricstream/reviews
+      gartner_peer_insights: https://www.gartner.com/reviews/market/integrated-risk-management/vendor/metricstream
+      trustradius: https://www.trustradius.com/products/metricstream/reviews
+      peerspot: https://www.peerspot.com/products/metricstream-reviews
+
+  - name: AuditBoard
+    base_url: https://www.auditboard.com
+    active: true
+    significance_threshold: 4
+    watch_keywords:
+      - AI
+      - GRC
+      - risk
+      - compliance
+      - funding
+      - Optro
+      - acquisition
+    signals:
+      reviews:
+        platforms:
+          - g2
+          - gartner_peer_insights
+          - trustradius
+          - capterra
+    pages:
+      - url: /
+      - url: /platform/
+      - url: /pricing/
+    careers_url: https://www.auditboard.com/company/careers/
+    news_feeds:
+      - https://www.auditboard.com/blog/feed/
+    review_urls:
+      g2: https://www.g2.com/products/auditboard/reviews
+      gartner_peer_insights: https://www.gartner.com/reviews/market/integrated-risk-management/vendor/auditboard
+      trustradius: https://www.trustradius.com/products/auditboard/reviews
+      capterra: https://www.capterra.com/p/auditboard/
+
+  - name: OneTrust GRC
+    base_url: https://www.onetrust.com
+    active: true
+    significance_threshold: 4
+    watch_keywords:
+      - GRC
+      - risk
+      - compliance
+      - AI
+      - funding
+      - acquisition
+    signals:
+      reviews:
+        platforms:
+          - g2
+          - gartner_peer_insights
+          - trustradius
+    pages:
+      - url: /products/grc-and-risk-management/
+      - url: /products/integrated-risk-management/
+    careers_url: https://www.onetrust.com/company/careers/
+    news_feeds:
+      - https://www.onetrust.com/blog/feed/
+    review_urls:
+      g2: https://www.g2.com/products/onetrust/reviews
+      gartner_peer_insights: https://www.gartner.com/reviews/market/integrated-risk-management/vendor/onetrust
+      trustradius: https://www.trustradius.com/products/onetrust/reviews
+
+  - name: IBM OpenPages
+    base_url: https://www.ibm.com
+    active: true
+    significance_threshold: 4
+    watch_keywords:
+      - OpenPages
+      - GRC
+      - risk
+      - compliance
+      - AI
+      - Watson
+    signals:
+      news:
+        alert: weekly
+      reviews:
+        platforms:
+          - g2
+          - gartner_peer_insights
+          - trustradius
+          - peerspot
+    pages:
+      - url: /products/openpages
+      - url: /products/openpages-with-watson
+    careers_url: https://www.ibm.com/employment/
+    news_feeds: []
+    review_urls:
+      g2: https://www.g2.com/products/ibm-openpages/reviews
+      gartner_peer_insights: https://www.gartner.com/reviews/market/integrated-risk-management/vendor/ibm/product/ibm-openpages
+      trustradius: https://www.trustradius.com/products/ibm-openpages-grc-platform/reviews
+      peerspot: https://www.peerspot.com/products/ibm-openpages-reviews
