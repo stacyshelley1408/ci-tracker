@@ -36,6 +36,21 @@ class TestIsNoise(unittest.TestCase):
     def test_is_case_insensitive(self):
         self.assertTrue(_is_noise("ACCEPT ALL cookies"))
 
+    def test_iab_category_descriptions_are_noise(self):
+        # Verbatim fragments that leaked into a real OneTrust alert — note none
+        # of these contain the words "cookie" or "consent".
+        leaked = [
+            "Click on the different category headings to learn more and change our default settings",
+            "The information does not usually identify you directly, but it can give you a more personalized web experience",
+            "The profile created regarding your browsing interest and behavior is used to customize the ads you see when you access other websites",
+            "They are usually set to manage actions made by you, such as requesting website visual elements",
+            "They collect any type of browsing information necessary to create profiles and to understand user habits in order to develop an individual and specific advertising routine",
+            "This information might be about you, your preferences, or your device, and is mostly used to make the site work as you expect",
+            "to deliver content, maintain security, enable user choice, improve our sites, and for marketing purposes",
+        ]
+        for fragment in leaked:
+            self.assertTrue(_is_noise(fragment), f"should be noise: {fragment!r}")
+
 
 class TestDiffText(unittest.TestCase):
     def test_noise_only_change_yields_empty_diff(self):

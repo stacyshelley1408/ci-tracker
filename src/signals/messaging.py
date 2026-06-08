@@ -58,11 +58,20 @@ def _save_snapshot(path: Path, content: str, content_hash: str):
 
 
 # Fragments matching any of these are cookie/consent boilerplate, not signal.
+# Two groups: (1) obvious consent-UI terms, (2) generic IAB/TCF cookie-category
+# descriptions that contain neither "cookie" nor "consent" and so slip through
+# the obvious terms — these leaked into a real OneTrust alert.
 _NOISE_MARKERS = (
+    # group 1 — consent UI chrome
     "cookie", "consent", "privacy preference", "manage preferences",
     "strictly necessary", "targeting cookies", "advertising partners",
     "opt-out", "accept all", "essential only", "user id:",
     "store or retrieve information on your browser",
+    # group 2 — IAB cookie-category description boilerplate
+    "personalized web experience", "customize the ads", "browsing interest",
+    "advertising routine", "category headings", "behavioral advertising",
+    "manage actions made by you", "make the site work as you expect",
+    "deliver content, maintain security",
 )
 
 
