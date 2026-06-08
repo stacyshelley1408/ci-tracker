@@ -22,6 +22,21 @@ def _extract_text(page) -> str:
         const remove = ['script', 'style', 'noscript', 'svg', 'video', 'iframe', 'nav', 'footer'];
         remove.forEach(tag => document.querySelectorAll(tag).forEach(el => el.remove()));
 
+        // Strip cookie/consent management UI — it injects boilerplate plus a
+        // rotating per-session User ID that would diff on every single run.
+        const consentSelectors = [
+            '[id*="onetrust" i]', '[class*="onetrust" i]', '[id*="ot-sdk" i]',
+            '#CybotCookiebotDialog', '[id*="cookiebot" i]',
+            '#truste-consent-track', '[class*="truste" i]',
+            '.cc-window', '[aria-label*="cookie" i]',
+            '[id*="cookie" i]', '[class*="cookie" i]',
+            '[id*="consent" i]', '[class*="consent" i]',
+            '[class*="gdpr" i]', '[id*="gdpr" i]',
+        ];
+        consentSelectors.forEach(sel => {
+            try { document.querySelectorAll(sel).forEach(el => el.remove()); } catch (e) {}
+        });
+
         const bodyText = document.body.innerText.replace(/\\s+/g, ' ').trim();
         const altSection = altTexts.length ? '[logos/images: ' + altTexts.join(', ') + ']' : '';
         return (bodyText + ' ' + altSection).trim();
@@ -42,16 +57,40 @@ def _save_snapshot(path: Path, content: str, content_hash: str):
     }))
 
 
+# Fragments matching any of these are cookie/consent boilerplate, not signal.
+_NOISE_MARKERS = (
+    "cookie", "consent", "privacy preference", "manage preferences",
+    "strictly necessary", "targeting cookies", "advertising partners",
+    "opt-out", "accept all", "essential only", "user id:",
+    "store or retrieve information on your browser",
+)
+
+
+def _is_noise(fragment: str) -> bool:
+    f = fragment.lower()
+    return any(marker in f for marker in _NOISE_MARKERS)
+
+
+def _segments(text: str) -> set[str]:
+    # Normalize trailing punctuation/whitespace so the final sentence (which
+    # keeps its period after a ". " split) doesn't read as a change every time
+    # content is appended elsewhere on the page.
+    segs = (s.strip().rstrip(".").strip() for s in text.split(". "))
+    return {s for s in segs if s}
+
+
 def _diff_text(old: str, new: str) -> str:
-    old_lines = set(old.split(". "))
-    new_lines = set(new.split(". "))
-    added = new_lines - old_lines
-    removed = old_lines - new_lines
+    old_lines = _segments(old)
+    new_lines = _segments(new)
+    # sorted() so the fragments shown in an alert are stable run-to-run
+    # (set iteration order varies with PYTHONHASHSEED).
+    added = sorted(s for s in (new_lines - old_lines) if not _is_noise(s))
+    removed = sorted(s for s in (old_lines - new_lines) if not _is_noise(s))
     parts = []
     if added:
-        parts.append("Added: " + " | ".join(list(added)[:10]))
+        parts.append("Added: " + " | ".join(added[:10]))
     if removed:
-        parts.append("Removed: " + " | ".join(list(removed)[:10]))
+        parts.append("Removed: " + " | ".join(removed[:10]))
     return "\n".join(parts) if parts else ""
 
 
@@ -90,15 +129,18 @@ def check_messaging(company: str, base_url: str, pages: list[dict]) -> list[dict
                 elif previous["hash"] != content_hash:
                     diff = _diff_text(previous["content"], text)
                     _save_snapshot(snapshot_path, text, content_hash)
-                    events.append({
-                        "company": company,
-                        "signal_type": "messaging_diff",
-                        "source": full_url,
-                        "alert": alert_level,
-                        "raw_diff": diff,
-                        "previous_hash": previous["hash"],
-                        "current_hash": content_hash,
-                    })
+                    # Hash changed but every changed fragment was noise — update
+                    # the baseline and move on without firing an event.
+                    if diff:
+                        events.append({
+                            "company": company,
+                            "signal_type": "messaging_diff",
+                            "source": full_url,
+                            "alert": alert_level,
+                            "raw_diff": diff,
+                            "previous_hash": previous["hash"],
+                            "current_hash": content_hash,
+                        })
 
                 page.close()
 
