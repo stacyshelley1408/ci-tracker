@@ -17,7 +17,7 @@ CATEGORIES = [
     "press",
 ]
 
-# Keyword rules for fallback classification when Anthropic API is unavailable
+# Keyword rules for fallback classification when no AI API key is set
 KEYWORD_RULES = {
     "funding": ["funding", "raises", "series a", "series b", "series c", "investment", "venture", "valuation", "ipo", "acquisition", "acquires", "acquired", "merger"],
     "pricing": ["pricing", "price", "plan", "tier", "subscription", "cost", "free trial", "enterprise plan", "per user", "per month"],

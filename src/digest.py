@@ -1,9 +1,8 @@
 import os
-import smtplib
 from collections import defaultdict
 from datetime import datetime, timezone, timedelta
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+
+from email_utils import CATEGORY_LABELS, send_smtp
 
 # Design system tokens (email-safe — inline only, no external fonts)
 SLATE = "#0d1117"
@@ -15,22 +14,6 @@ SOFT_GRAY = "#eaf1f0"
 TEXT_MUTED = "#6b7280"
 TEXT_LIGHT = "#9ca3af"
 BORDER = "#ccdeda"
-
-CATEGORY_LABELS = {
-    "pricing": "PRICING CHANGE",
-    "messaging": "MESSAGING SHIFT",
-    "product": "PRODUCT UPDATE",
-    "hiring": "HIRING SIGNAL",
-    "partnership": "PARTNERSHIP",
-    "funding": "FUNDING / M&A",
-    "leadership": "LEADERSHIP CHANGE",
-    "customer": "NEW CUSTOMER",
-    "threat_intel": "THREAT INTEL",
-    "community": "COMMUNITY MENTION",
-    "review": "REVIEW ACTIVITY",
-    "competitive_positioning": "COMPETITIVE POSITIONING",
-    "press": "PRESS / ANALYST",
-}
 
 
 def _label(category: str) -> str:
@@ -180,7 +163,7 @@ def build_html(highlights: list[dict], all_events: list[dict], date_range: str) 
             <td style="padding-top:28px;border-top:1px solid {BORDER};">
               <p style="margin:0;font-family:Arial,sans-serif;font-size:11px;
                         color:{TEXT_LIGHT};letter-spacing:.06em;">
-                CI Tracker · DNS Security Market · Generated automatically
+                CI Tracker · Generated automatically
               </p>
             </td>
           </tr>
@@ -207,33 +190,13 @@ def send_digest(highlights: list[dict], all_events: list[dict]) -> list[str]:
     date_range = f"{week_ago.strftime('%b %d')} – {today.strftime('%b %d, %Y')}"
 
     html = build_html(highlights, all_events, date_range)
-
-    smtp_host = os.environ.get("SMTP_HOST", "smtp.gmail.com")
-    smtp_port = int(os.environ.get("SMTP_PORT", "587"))
-    smtp_user = os.environ.get("SMTP_USER")
-    smtp_password = os.environ.get("SMTP_PASSWORD")
-    alert_email = os.environ.get("ALERT_EMAIL")
-
-    if not all([smtp_user, smtp_password, alert_email]):
-        raise ValueError("SMTP_USER, SMTP_PASSWORD, and ALERT_EMAIL must be set")
-
-    msg = MIMEMultipart("alternative")
-    msg["From"] = smtp_user
-    msg["To"] = alert_email
-    msg["Subject"] = f"CI Digest: DNS Security — {date_range}"
-    msg.attach(MIMEText(html, "html"))
+    subject = f"CI Digest: {date_range}"
 
     try:
-        with smtplib.SMTP(smtp_host, smtp_port) as server:
-            server.ehlo()
-            server.starttls()
-            server.login(smtp_user, smtp_password)
-            server.sendmail(smtp_user, alert_email, msg.as_string())
-
+        send_smtp(subject, html, mime_type="html")
         count = len(all_events)
-        print(f"[digest] sent {count} event(s) to {alert_email}")
+        print(f"[digest] sent {count} event(s) to {os.environ.get('ALERT_EMAIL')}")
         return [e["event_id"] for e in all_events]
-
     except Exception as e:
         print(f"[digest] failed to send: {e}")
         return []

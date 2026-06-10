@@ -41,7 +41,7 @@ def resolve_signal(company_signals: dict, signal_key: str, defaults: dict) -> di
     return {**default_signal, **company_signal}
 
 
-def run_company(company: dict, defaults: dict, mode: str) -> list[dict]:
+def run_company(company: dict, defaults: dict) -> list[dict]:
     name = company["name"]
     base_url = company.get("base_url", "")
     active = resolve(company.get("active"), defaults.get("active", True))
@@ -130,7 +130,7 @@ def run_daily(config: dict):
 
     all_saved = []
     for company in companies:
-        saved = run_company(company, defaults, mode="daily")
+        saved = run_company(company, defaults)
         all_saved.extend(saved)
 
     print(f"\n[run] {len(all_saved)} total event(s) saved")

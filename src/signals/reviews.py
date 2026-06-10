@@ -107,7 +107,7 @@ def _scrape_platform(page, platform: str) -> dict:
 
     # Full page content hash as fallback change detector
     try:
-        body_text = page.evaluate("() => document.body.innerText.replace(/\\s+/g, ' ').trim()")
+        body_text = page.evaluate("() => { const el = document.body || document.documentElement; return el ? el.innerText.replace(/\\s+/g, ' ').trim() : ''; }")
         result["content_hash"] = hashlib.md5(body_text.encode()).hexdigest()
     except Exception:
         pass
