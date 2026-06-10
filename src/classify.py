@@ -133,7 +133,8 @@ def _classify_with_gemini(signal_type: str, text: str, watch_keywords: list[str]
     import google.generativeai as genai
 
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model_name = os.environ.get("GEMINI_MODEL", "gemini-2.0-flash-lite")
+    model = genai.GenerativeModel(model_name)
 
     categories_str = ", ".join(CATEGORIES)
     keywords_str = ", ".join(watch_keywords) if watch_keywords else "none"
@@ -180,24 +181,32 @@ If any watch keywords appear in the content, bias the score upward by 1."""
 def classify(event: dict, watch_keywords: list[str]) -> dict:
     """
     Adds haiku_category and haiku_score to an event dict.
-    Priority: Anthropic > Gemini > keyword rules.
+    Priority: Gemini > Anthropic > keyword rules.
+    Set GEMINI_API_KEY for the default free-tier classifier.
+    Set ANTHROPIC_API_KEY to use Claude Haiku instead (or as fallback).
+    If neither key is set, falls back to deterministic keyword rules.
     """
     text = event.get("raw_diff", "")
     signal_type = event.get("signal_type", "")
 
-    if os.environ.get("ANTHROPIC_API_KEY"):
-        try:
-            category, score = _classify_with_anthropic(signal_type, text, watch_keywords)
-        except Exception as e:
-            print(f"[classify] Anthropic failed, trying Gemini: {e}")
-            category, score = _classify_with_gemini(signal_type, text, watch_keywords) \
-                if os.environ.get("GEMINI_API_KEY") \
-                else _classify_by_keywords(signal_type, text)
-    elif os.environ.get("GEMINI_API_KEY"):
+    if os.environ.get("GEMINI_API_KEY"):
         try:
             category, score = _classify_with_gemini(signal_type, text, watch_keywords)
         except Exception as e:
-            print(f"[classify] Gemini failed, falling back to keywords: {e}")
+            print(f"[classify] Gemini failed, trying Anthropic: {e}")
+            if os.environ.get("ANTHROPIC_API_KEY"):
+                try:
+                    category, score = _classify_with_anthropic(signal_type, text, watch_keywords)
+                except Exception as e2:
+                    print(f"[classify] Anthropic failed, falling back to keywords: {e2}")
+                    category, score = _classify_by_keywords(signal_type, text)
+            else:
+                category, score = _classify_by_keywords(signal_type, text)
+    elif os.environ.get("ANTHROPIC_API_KEY"):
+        try:
+            category, score = _classify_with_anthropic(signal_type, text, watch_keywords)
+        except Exception as e:
+            print(f"[classify] Anthropic failed, falling back to keywords: {e}")
             category, score = _classify_by_keywords(signal_type, text)
     else:
         category, score = _classify_by_keywords(signal_type, text)
