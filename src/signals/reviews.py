@@ -162,8 +162,8 @@ def check_reviews(company: str, platforms: list[str], review_urls: dict, alert_l
 
             try:
                 page = context.new_page()
-                page.goto(url, wait_until="networkidle", timeout=30000)
-                page.wait_for_timeout(2000)
+                page.goto(url, wait_until="domcontentloaded", timeout=45000)
+                page.wait_for_timeout(1500)
 
                 current = _scrape_platform(page, platform)
                 snapshot_path = _snapshot_path(company, platform)

@@ -37,7 +37,8 @@ def _extract_text(page) -> str:
             try { document.querySelectorAll(sel).forEach(el => el.remove()); } catch (e) {}
         });
 
-        const bodyText = document.body.innerText.replace(/\\s+/g, ' ').trim();
+        const bodyEl = document.body || document.documentElement;
+        const bodyText = bodyEl ? bodyEl.innerText.replace(/\\s+/g, ' ').trim() : '';
         const altSection = altTexts.length ? '[logos/images: ' + altTexts.join(', ') + ']' : '';
         return (bodyText + ' ' + altSection).trim();
     }""")
@@ -124,8 +125,8 @@ def check_messaging(company: str, base_url: str, pages: list[dict]) -> list[dict
 
             try:
                 page = context.new_page()
-                page.goto(full_url, wait_until="networkidle", timeout=30000)
-                page.wait_for_timeout(2000)
+                page.goto(full_url, wait_until="domcontentloaded", timeout=45000)
+                page.wait_for_timeout(1500)
 
                 text = _extract_text(page)
                 content_hash = hashlib.md5(text.encode()).hexdigest()
