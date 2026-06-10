@@ -1,8 +1,14 @@
+import html
 import os
 from collections import defaultdict
 from datetime import datetime, timezone, timedelta
 
 from email_utils import CATEGORY_LABELS, send_smtp
+
+
+def _safe_url(url: str) -> str:
+    """Return url only if it's a safe http/https link; empty string otherwise."""
+    return url if url.startswith(("http://", "https://")) else ""
 
 # Design system tokens (email-safe — inline only, no external fonts)
 SLATE = "#0d1117"
@@ -29,13 +35,15 @@ def _format_date(iso: str) -> str:
 
 
 def _event_card(event: dict, show_company: bool = True) -> str:
-    company = event.get("company", "")
+    company = html.escape(event.get("company", ""))
     category = event.get("haiku_category", "")
-    label = _label(category)
+    label = html.escape(_label(category))
     score = event.get("haiku_score", "")
     source = event.get("source", "")
-    summary = event.get("raw_diff", "").strip()[:400]
-    timestamp = _format_date(event.get("timestamp", ""))
+    safe_href = _safe_url(source)
+    source_display = html.escape(source[:80])
+    summary = html.escape(event.get("raw_diff", "").strip()[:400])
+    timestamp = html.escape(_format_date(event.get("timestamp", "")))
 
     company_row = ""
     if show_company:
@@ -67,9 +75,9 @@ def _event_card(event: dict, show_company: bool = True) -> str:
                   line-height:1.5;color:{SLATE};font-weight:300;">
           {summary}
         </p>
-        <a href="{source}" style="font-family:Arial,sans-serif;font-size:11px;
+        <a href="{safe_href}" style="font-family:Arial,sans-serif;font-size:11px;
                                   color:{ACCENT};text-decoration:none;">
-          {source[:80]}{'…' if len(source) > 80 else ''}
+          {source_display}{'…' if len(source) > 80 else ''}
         </a>
       </td></tr>
     </table>"""
@@ -89,6 +97,7 @@ def _section_header(title: str) -> str:
 
 
 def _company_header(name: str, count: int) -> str:
+    name = html.escape(name)
     noun = "signal" if count == 1 else "signals"
     return f"""
     <tr>
