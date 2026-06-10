@@ -63,17 +63,13 @@ def mark_in_digest(event_id: str):
     _save_events(events)
 
 
-def get_alertable_events(threshold: int) -> list[dict]:
-    """
-    Returns unalerted events at or above the significance threshold
-    whose alert level is 'daily'.
-    """
+def get_alertable_events() -> list[dict]:
+    """Returns all unalerted daily-alert events. Threshold filtering is the caller's responsibility."""
     events = _load_events()
     return [
         e for e in events
         if not e.get("alerted")
         and e.get("alert") == "daily"
-        and e.get("haiku_score", 0) >= threshold
     ]
 
 

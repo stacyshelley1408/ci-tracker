@@ -142,9 +142,8 @@ def run_daily(config: dict):
     }
     default_threshold = defaults.get("significance_threshold", 4)
 
-    alertable = get_alertable_events(threshold=1)  # fetch all, filter per company below
     to_alert = [
-        e for e in alertable
+        e for e in get_alertable_events()
         if e.get("haiku_score", 0) >= company_thresholds.get(e.get("company"), default_threshold)
     ]
 
