@@ -1,0 +1,222 @@
+[
+  {
+    "title": "Customers",
+    "url": "/customer-success"
+  },
+  {
+    "title": "Get Started",
+    "url": "/contact-us/request-demo"
+  },
+  {
+    "title": "privacy notice",
+    "url": "/privacy-notice"
+  },
+  {
+    "title": "Platform",
+    "url": "/platform"
+  },
+  {
+    "title": "Analytics",
+    "url": "/platform/analytics"
+  },
+  {
+    "title": "Optro AI",
+    "url": "/platform/ai"
+  },
+  {
+    "title": "Services & Support",
+    "url": "/platform/services"
+  },
+  {
+    "title": "Integrations & APIs",
+    "url": "/integrations"
+  },
+  {
+    "title": "Frameworks & Controls",
+    "url": "/platform/frameworks"
+  },
+  {
+    "title": "Reporting & Dashboards",
+    "url": "/platform/reporting-dashboards"
+  },
+  {
+    "title": "Controls Management",
+    "url": "/product/controls-management"
+  },
+  {
+    "title": "Autonomous Testing",
+    "url": "/product/autonomous-testing"
+  },
+  {
+    "title": "AI Governance",
+    "url": "/product/ai-governance"
+  },
+  {
+    "title": "OpsAudit",
+    "url": "/product/operational-audit"
+  },
+  {
+    "title": "CrossComply",
+    "url": "/product/compliance-control"
+  },
+  {
+    "title": "RiskOversight",
+    "url": "/product/risk-management"
+  },
+  {
+    "title": "Cyber Risk Management",
+    "url": "/product/it-risk-management"
+  },
+  {
+    "title": "RegComply",
+    "url": "/product/regulatory-compliance"
+  },
+  {
+    "title": "Community Hub",
+    "url": "https://community.auditboard.com"
+  },
+  {
+    "title": "Events & Webinars",
+    "url": "/events"
+  },
+  {
+    "title": "Resource Library",
+    "url": "/resources"
+  },
+  {
+    "title": "On-Demand Webinars",
+    "url": "/resources/type/on-demand-webinar"
+  },
+  {
+    "title": "Ebooks & Whitepapers",
+    "url": "/resources/type/ebook"
+  },
+  {
+    "title": "What is Optro?",
+    "url": "/blog/what-is-optro"
+  },
+  {
+    "title": "Careers",
+    "url": "/careers"
+  },
+  {
+    "title": "Media Coverage",
+    "url": "/news/type/news-coverage"
+  },
+  {
+    "title": "Partners",
+    "url": "/partners"
+  },
+  {
+    "title": "Press Releases",
+    "url": "/news/type/press-releases"
+  },
+  {
+    "title": "Trust Center",
+    "url": "https://trust.optro.ai"
+  },
+  {
+    "title": "Product Support",
+    "url": "https://support.soxhub.com/hc/en-us"
+  },
+  {
+    "title": "AI info for LLMs",
+    "url": "https://optro.ai/ai-info-for-llms"
+  },
+  {
+    "title": "Privacy Notice",
+    "url": "/privacy-notice"
+  },
+  {
+    "title": "Trust & Security",
+    "url": "/trust-security"
+  },
+  {
+    "title": "Cookie Notice",
+    "url": "/cookie-notice"
+  },
+  {
+    "title": "Cookie Notice.",
+    "url": "https://optro.ai/cookie-notice/"
+  },
+  {
+    "title": "Cloudflare Inc.",
+    "url": "https://www.cloudflare.com/privacypolicy"
+  },
+  {
+    "title": "Amazon Web Services, Inc.",
+    "url": "https://aws.amazon.com/privacy/"
+  },
+  {
+    "title": "Amazon.com Inc.",
+    "url": "https://advertising.amazon.com/legal/privacy-notice"
+  },
+  {
+    "title": "Khoros LLC",
+    "url": "https://khoros.com/privacy"
+  },
+  {
+    "title": "CookieScript",
+    "url": "https://cookie-script.com/privacy-policy.html"
+  },
+  {
+    "title": "Google LLC",
+    "url": "https://policies.google.com/privacy"
+  },
+  {
+    "title": "Symfony SAS",
+    "url": "https://connect.symfony.com/privacy-policy"
+  },
+  {
+    "title": "StackAdapt",
+    "url": "https://www.stackadapt.com/privacy"
+  },
+  {
+    "title": "Wingify Software Pvt. Ltd",
+    "url": "https://vwo.com/privacy-policy/"
+  },
+  {
+    "title": "Google",
+    "url": "https://policies.google.com/privacy"
+  },
+  {
+    "title": "LinkedIn Corporation",
+    "url": "https://www.linkedin.com/legal/privacy-policy"
+  },
+  {
+    "title": "Khoros",
+    "url": "https://khoros.com/privacy-policy"
+  },
+  {
+    "title": "Microsoft Corporation",
+    "url": "https://privacy.microsoft.com/privacystatement"
+  },
+  {
+    "title": "Tremor Video DSP",
+    "url": "https://www.tremorinternational.com/privacy-policy/"
+  },
+  {
+    "title": "Tremor International Ltd",
+    "url": "https://www.tremorinternational.com/privacy-policy/"
+  },
+  {
+    "title": "Meta Platform Inc.",
+    "url": "https://www.facebook.com/policy.php"
+  },
+  {
+    "title": "Casale Media Inc.",
+    "url": "https://casalemedia.com/"
+  },
+  {
+    "title": "Wingify",
+    "url": "https://vwo.com/privacy-policy/"
+  },
+  {
+    "title": "Adobe Inc.",
+    "url": "https://www.adobe.com/privacy/policy.html"
+  },
+  {
+    "title": "report",
+    "url": "https://cookie-script.com/cookie-report?identifier=c67f8220b6e4be37f1eb65b144f4af24"
+  }
+]
