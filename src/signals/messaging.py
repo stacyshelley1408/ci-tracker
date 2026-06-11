@@ -1,6 +1,7 @@
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
@@ -81,12 +82,29 @@ def _is_noise(fragment: str) -> bool:
     return any(marker in f for marker in _NOISE_MARKERS)
 
 
+# Skip-navigation links ("Skip to Main Content", "Skip to Content") are
+# accessibility UI that changes independently of page content. Strip them
+# from segments before comparison so a site-wide skip-nav tweak doesn't
+# fire alerts on every monitored page.
+_SKIP_NAV_RE = re.compile(r'\bskip to (?:main )?content\b', re.IGNORECASE)
+
+
+def _normalize_segment(s: str) -> str:
+    return _SKIP_NAV_RE.sub("", s).strip()
+
+
 def _segments(text: str) -> set[str]:
     # Normalize trailing punctuation/whitespace so the final sentence (which
     # keeps its period after a ". " split) doesn't read as a change every time
     # content is appended elsewhere on the page.
     segs = (s.strip().rstrip(".").strip() for s in text.split(". "))
-    return {s for s in segs if s}
+    result = set()
+    for s in segs:
+        if s:
+            n = _normalize_segment(s)
+            if n:
+                result.add(n)
+    return result
 
 
 def _diff_text(old: str, new: str) -> str:

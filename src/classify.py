@@ -211,4 +211,12 @@ def classify(event: dict, watch_keywords: list[str]) -> dict:
     else:
         category, score = _classify_by_keywords(signal_type, text)
 
+    # Guard: leadership and funding are score-5 categories; if the AI assigned
+    # one but no supporting keywords exist in the text, it hallucinated the
+    # category. Fall back to deterministic keyword rules instead.
+    if category in {"leadership", "funding"}:
+        keywords = KEYWORD_RULES.get(category, [])
+        if not any(kw in text.lower() for kw in keywords):
+            category, score = _classify_by_keywords(signal_type, text)
+
     return {**event, "haiku_category": category, "haiku_score": score}
