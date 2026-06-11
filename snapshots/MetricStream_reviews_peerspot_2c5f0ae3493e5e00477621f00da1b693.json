@@ -1,7 +1,7 @@
 {
   "rating": null,
   "review_count": null,
-  "content_hash": "ed3efac6bb1b1639b4c4f2904b504f4c",
+  "content_hash": "b4b3c8625676ee18a65dc0fd6ad1a261",
   "review_ids": [
     "5a39ce7d22a7c2fc71b670ca2080a518",
     "63e5a483c30376010644606caf15fc36",
@@ -9,10 +9,6 @@
     "12e2e68456f280c7420658c216396228",
     "31a857a92c249e46c7bc573c6909c664",
     "2359a594834cfe9407d24ae5e6a2a2e8",
-    "7713b5e87da300fc75904632bae5ebe8",
-    "9fd3268bbb7038a4f490f9c8bc772abd",
-    "b89778870df6a3c51472a262c6f049a2",
-    "3035c37227e879ca922027daef812cd4",
-    "1ee140b38a7b16d198b9b8c895df468e"
+    "7713b5e87da300fc75904632bae5ebe8"
   ]
 }
