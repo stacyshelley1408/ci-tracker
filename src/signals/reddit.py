@@ -7,9 +7,9 @@ import requests
 
 SNAPSHOTS_DIR = Path(__file__).parents[2] / "snapshots"
 REDDIT_BASE = "https://www.reddit.com"
-# RSS is far less aggressively blocked from CI IP ranges than the JSON API.
+# Use a plain browser UA — Reddit rate-limits self-identified bots more aggressively.
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; ci-tracker/1.0; +https://github.com/stacyshelley1408/ci-tracker)"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 }
 
 
@@ -52,14 +52,22 @@ def _post_summary(entry) -> str:
 def _search_subreddit_rss(subreddit: str, query: str) -> list:
     url = f"{REDDIT_BASE}/r/{subreddit}/search.rss"
     params = {"q": query, "sort": "new", "t": "week", "restrict_sr": "1", "limit": "25"}
-    try:
-        resp = requests.get(url, headers=HEADERS, params=params, timeout=15)
-        resp.raise_for_status()
-        feed = feedparser.parse(resp.text)
-        return feed.entries
-    except Exception as e:
-        print(f"[reddit] failed r/{subreddit} query '{query}': {e}")
-        return []
+    for attempt in range(2):
+        try:
+            resp = requests.get(url, headers=HEADERS, params=params, timeout=15)
+            if resp.status_code == 429:
+                if attempt == 0:
+                    time.sleep(10)
+                    continue
+                print(f"[reddit] rate-limited r/{subreddit} query '{query}', skipping")
+                return []
+            resp.raise_for_status()
+            feed = feedparser.parse(resp.text)
+            return feed.entries
+        except Exception as e:
+            print(f"[reddit] failed r/{subreddit} query '{query}': {e}")
+            return []
+    return []
 
 
 def check_reddit(
