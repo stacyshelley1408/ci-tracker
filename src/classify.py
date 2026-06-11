@@ -133,7 +133,7 @@ def _classify_with_gemini(signal_type: str, text: str, watch_keywords: list[str]
     import google.generativeai as genai
 
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model_name = os.environ.get("GEMINI_MODEL", "gemini-2.0-flash-lite")
+    model_name = os.environ.get("GEMINI_MODEL", "gemini-3.1-flash-lite")
     model = genai.GenerativeModel(model_name)
 
     categories_str = ", ".join(CATEGORIES)
