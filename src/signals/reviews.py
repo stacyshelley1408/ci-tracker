@@ -6,14 +6,13 @@ from playwright.sync_api import sync_playwright
 
 SNAPSHOTS_DIR = Path(__file__).parents[2] / "snapshots"
 
-# Platform-specific selectors for rating + review count
+# Platform-specific selectors for rating + review count.
+# G2, PeerSpot, and Spiceworks are intentionally omitted: from CI/datacenter
+# IPs they serve Cloudflare/anti-bot challenge pages to headless browsers, so
+# they never yield real data — only false "page changed" churn. Any platform
+# not listed here is skipped (see check_reviews). Revisit with a residential
+# scraping API if hands-off G2/Gartner coverage becomes worth the cost.
 PLATFORM_SELECTORS = {
-    "g2": {
-        "rating": "[data-test='rating-value'], .fw-semibold.f-1",
-        "review_count": "[data-test='review-count'], .filters-heading",
-        "reviews": "article[itemprop='review'], .paper.paper--white.paper--shadow",
-        "review_id_attr": "data-id",
-    },
     "gartner_peer_insights": {
         "rating": ".overall-rating .rating-score, .hero-rating-score",
         "review_count": ".review-count, .ratings-count",
@@ -31,18 +30,6 @@ PLATFORM_SELECTORS = {
         "review_count": ".review-count, .total-reviews",
         "reviews": ".review-content, .reviewContent",
         "review_id_attr": "data-review-id",
-    },
-    "peerspot": {
-        "rating": ".overall-rating, .rating-value",
-        "review_count": ".reviews-count, .number-of-reviews",
-        "reviews": ".review-item, .review-card",
-        "review_id_attr": "data-id",
-    },
-    "spiceworks": {
-        "rating": ".overall-rating, .star-rating-value",
-        "review_count": ".review-count, .total-reviews",
-        "reviews": ".review-post, .community-review",
-        "review_id_attr": "data-post-id",
     },
 }
 
@@ -135,9 +122,9 @@ def _build_diff_summary(previous: dict, current: dict) -> str:
     if new_ids:
         parts.append(f"{len(new_ids)} new review ID(s) detected")
 
-    if not parts and previous.get("content_hash") != current.get("content_hash"):
-        parts.append("Page content changed (rating/count extraction unavailable)")
-
+    # No content-hash fallback: a bare "page changed" with nothing extracted is
+    # noise on these dynamic/anti-bot pages. Only emit when a real rating, count,
+    # or new-review-ID delta was actually extracted.
     return "; ".join(parts) if parts else ""
 
 
@@ -156,6 +143,12 @@ def check_reviews(company: str, platforms: list[str], review_urls: dict, alert_l
         )
 
         for platform in platforms:
+            if platform not in PLATFORM_SELECTORS:
+                # Blocked/unsupported (e.g. G2) — skip rather than scrape a
+                # challenge page that only produces noise.
+                print(f"[reviews] skipping unsupported/blocked platform: {platform}")
+                continue
+
             url = review_urls.get(platform)
             if not url:
                 continue
