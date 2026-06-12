@@ -17,8 +17,13 @@ TOKEN_URL = "https://www.reddit.com/api/v1/access_token"
 ANON_HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 }
-# Descriptive UA for authenticated requests (Reddit requires a unique UA).
-OAUTH_UA = "ci-tracker/1.0 (competitive intelligence monitor)"
+# Reddit's policy requires the UA format: platform:appname:version (by /u/user).
+# Non-conforming UAs are throttled harder or suspended. The username comes from
+# REDDIT_USERNAME (contact info per policy); omitted gracefully if unset.
+def _oauth_ua() -> str:
+    user = os.environ.get("REDDIT_USERNAME", "").strip().lstrip("/").removeprefix("u/")
+    contact = f" (by /u/{user})" if user else ""
+    return f"python:ci-tracker:1.0{contact}"
 
 # --- Run-wide pacing and circuit breaker -------------------------------------
 # Reddit throttles unauthenticated traffic by IP (and GitHub Actions egress IPs
@@ -57,14 +62,14 @@ def _oauth_headers():
         return None
 
     if _token and time.monotonic() < _token_expiry:
-        return {"Authorization": f"bearer {_token}", "User-Agent": OAUTH_UA}
+        return {"Authorization": f"bearer {_token}", "User-Agent": _oauth_ua()}
 
     try:
         resp = requests.post(
             TOKEN_URL,
             auth=(client_id, client_secret),
             data={"grant_type": "client_credentials"},
-            headers={"User-Agent": OAUTH_UA},
+            headers={"User-Agent": _oauth_ua()},
             timeout=15,
         )
         resp.raise_for_status()
@@ -72,7 +77,7 @@ def _oauth_headers():
         _token = payload["access_token"]
         # Refresh a minute early to avoid using a token that expires mid-request.
         _token_expiry = time.monotonic() + payload.get("expires_in", 3600) - 60
-        return {"Authorization": f"bearer {_token}", "User-Agent": OAUTH_UA}
+        return {"Authorization": f"bearer {_token}", "User-Agent": _oauth_ua()}
     except (requests.RequestException, KeyError, ValueError) as e:
         print(f"[reddit] OAuth token fetch failed, falling back to anonymous: {e}")
         return None
