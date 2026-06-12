@@ -20,6 +20,7 @@ from signals.jobs import check_jobs
 from signals.news import check_news
 from signals.reviews import check_reviews
 from signals.reddit import check_reddit
+from signals.hn import check_hn
 
 CONFIG_PATH = Path(__file__).parents[1] / "config" / "companies.yml"
 
@@ -110,6 +111,17 @@ def run_company(company: dict, defaults: dict) -> list[dict]:
         )
         for e in raw_events:
             e["include_in_digest"] = sig.get("include_in_digest", True)
+            events.append(e)
+
+    # Hacker News (community signal; no auth, not IP-throttled like Reddit).
+    # Reuses the Reddit signal's brand search terms; enabled unless turned off.
+    hn_sig = resolve_signal(company_signals, "hn", defaults)
+    if hn_sig.get("enabled", True):
+        reddit_terms = resolve_signal(company_signals, "reddit", defaults).get("search_terms", [])
+        hn_terms = hn_sig.get("search_terms") or reddit_terms
+        raw_events = check_hn(name, hn_terms, name, hn_sig.get("alert", "daily"))
+        for e in raw_events:
+            e["include_in_digest"] = hn_sig.get("include_in_digest", True)
             events.append(e)
 
     # Classify and save all events

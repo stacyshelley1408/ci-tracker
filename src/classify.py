@@ -59,6 +59,7 @@ def _classify_by_keywords(signal_type: str, text: str) -> tuple[str, int]:
         "job_posting": "hiring",
         "review": "review",
         "reddit": "community",
+        "hn": "community",
         "news": None,
         "messaging_diff": "messaging",
     }
