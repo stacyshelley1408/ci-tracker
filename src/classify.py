@@ -133,7 +133,11 @@ def _classify_with_gemini(signal_type: str, text: str, watch_keywords: list[str]
     import google.generativeai as genai
 
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model_name = os.environ.get("GEMINI_MODEL", "gemini-3.1-flash-lite")
+    # Use `or` not get(default): a GEMINI_MODEL env var set to an empty string
+    # (e.g. an unset GitHub secret expands to "") is truthy-absent and would
+    # otherwise shadow the default, producing model name "models/" -> the API's
+    # "400 ... unexpected model name format" error.
+    model_name = (os.environ.get("GEMINI_MODEL") or "").strip() or "gemini-3.1-flash-lite"
     model = genai.GenerativeModel(model_name)
 
     categories_str = ", ".join(CATEGORIES)
