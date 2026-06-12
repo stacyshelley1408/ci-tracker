@@ -112,10 +112,6 @@
     "url": "https://www.metricstream.com/pressNews/operational-risk-audit-top-risktech-ai-companies-in-the-world-in-chartis.html"
   },
   {
-    "title": "Solutions",
-    "url": "#"
-  },
-  {
     "title": "Enterprise GRC",
     "url": "/solutions/governance-risk-and-compliance.htm"
   },
@@ -148,20 +144,12 @@
     "url": "/solutions/idw.html"
   },
   {
-    "title": "Frameworks",
-    "url": "#"
-  },
-  {
     "title": "HIPAA",
     "url": "/framework/hipaa-compliance.html"
   },
   {
     "title": "PCI DSS",
     "url": "/framework/pci-compliance.html"
-  },
-  {
-    "title": "Industries",
-    "url": "#"
   },
   {
     "title": "Banking and Financial Services",
@@ -196,10 +184,6 @@
     "url": "/industries/utilities.htm"
   },
   {
-    "title": "Customers",
-    "url": "#"
-  },
-  {
     "title": "Customer Stories",
     "url": "/customers/our-customers.htm"
   },
@@ -214,10 +198,6 @@
   {
     "title": "Robert Taylor from LSEG shares his experience on implementing an integrated GRC program with MetricStream",
     "url": "https://www.metricstream.com/grc-summit/london-2022/grc-program-excellence-award-lseg.html"
-  },
-  {
-    "title": "Partners",
-    "url": "#"
   },
   {
     "title": "Overview",
@@ -288,10 +268,6 @@
     "url": "https://info.metricstream.com/trends-shaping-grc-in-2026-and-beyond.html"
   },
   {
-    "title": "Company",
-    "url": "#"
-  },
-  {
     "title": "Newsroom",
     "url": "/about-us/newsroom.htm"
   },
@@ -321,15 +297,35 @@
   },
   {
     "title": "Products",
-    "url": "#"
+    "url": "#!/mobilemenu"
   },
   {
     "title": "ConnectedGRC",
     "url": "/products/connected-grc.htm"
   },
   {
+    "title": "Solutions",
+    "url": "#!/mobilemenu"
+  },
+  {
+    "title": "Industries",
+    "url": "#!/mobilemenu"
+  },
+  {
     "title": "Resources",
-    "url": "#"
+    "url": "#!/mobilemenu"
+  },
+  {
+    "title": "Customers",
+    "url": "#!/mobilemenu"
+  },
+  {
+    "title": "Partners",
+    "url": "#!/mobilemenu"
+  },
+  {
+    "title": "Company",
+    "url": "#!/mobilemenu"
   },
   {
     "title": "IT Compliance",
