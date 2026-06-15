@@ -10,15 +10,26 @@ def _format_event(event: dict) -> str:
     label = CATEGORY_LABELS.get(category, category.upper())
     score = event.get("haiku_score", "")
     source = event.get("source", "")
-    summary = event.get("raw_diff", "").strip()
+    summary = event.get("haiku_summary", "").strip()
+    raw_diff = event.get("raw_diff", "").strip()
 
     lines = [
         f"[{label}] {company} (score: {score}/5)",
         f"Source: {source}",
         "",
-        summary[:600],
-        "-" * 60,
     ]
+
+    if summary:
+        # LLM-written so-what; lead with it and append a short raw excerpt for
+        # verification.
+        lines.append(summary)
+        if raw_diff:
+            lines += ["", f"Excerpt: {raw_diff[:240]}"]
+    else:
+        # No summary (keyword fallback); show the raw diff as before.
+        lines.append(raw_diff[:600])
+
+    lines.append("-" * 60)
     return "\n".join(lines)
 
 

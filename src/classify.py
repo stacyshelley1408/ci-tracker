@@ -51,7 +51,7 @@ SCORE_RULES = {
 }
 
 
-def _classify_by_keywords(signal_type: str, text: str) -> tuple[str, int]:
+def _classify_by_keywords(signal_type: str, text: str) -> tuple[str, int, str]:
     text_lower = text.lower()
 
     # Signal type gives a strong prior for some categories
@@ -75,18 +75,16 @@ def _classify_by_keywords(signal_type: str, text: str) -> tuple[str, int]:
                 best_category = category
                 best_score = candidate_score
 
-    return best_category, best_score
+    # No LLM available to write a real summary; leave it empty so the alert
+    # and digest fall back to showing the raw diff excerpt.
+    return best_category, best_score, ""
 
 
-def _classify_with_anthropic(signal_type: str, text: str, watch_keywords: list[str]) -> tuple[str, int]:
-    import anthropic
-
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
-
+def _build_prompt(signal_type: str, text: str, watch_keywords: list[str]) -> str:
     categories_str = ", ".join(CATEGORIES)
     keywords_str = ", ".join(watch_keywords) if watch_keywords else "none"
 
-    prompt = f"""You are a competitive intelligence analyst. Classify the following signal from a B2B cybersecurity company tracker.
+    return f"""You are a competitive intelligence analyst. Classify the following signal from a B2B enterprise software company tracker.
 
 Signal type: {signal_type}
 Watch keywords (high-priority terms for this company): {keywords_str}
@@ -94,9 +92,10 @@ Watch keywords (high-priority terms for this company): {keywords_str}
 Signal content:
 {text[:1500]}
 
-Respond with exactly two lines:
+Respond with exactly three lines:
 CATEGORY: <one of: {categories_str}>
 SCORE: <integer 1-5>
+SUMMARY: <one sentence stating what concretely changed and why it matters competitively. Name specific products, prices, people, or claims. For messaging diffs, compare the Removed text against the Added text and describe the substantive shift (e.g. a renamed product, a dropped claim, a new positioning). Ignore navigation menus, repeated words, and boilerplate. Do not restate the category name.>
 
 Scoring guide:
 5 - Major move, act today (funding round, acquisition, product launch, pricing overhaul, exec departure)
@@ -107,17 +106,13 @@ Scoring guide:
 
 If any watch keywords appear in the content, bias the score upward by 1."""
 
-    message = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=50,
-        messages=[{"role": "user", "content": prompt}],
-    )
 
-    response = message.content[0].text.strip()
+def _parse_response(response_text: str) -> tuple[str, int, str]:
     category = "messaging"
     score = 2
+    summary = ""
 
-    for line in response.splitlines():
+    for line in response_text.splitlines():
         if line.startswith("CATEGORY:"):
             raw = line.split(":", 1)[1].strip().lower()
             if raw in CATEGORIES:
@@ -126,11 +121,27 @@ If any watch keywords appear in the content, bias the score upward by 1."""
             match = re.search(r"\d", line)
             if match:
                 score = max(1, min(5, int(match.group())))
+        elif line.startswith("SUMMARY:"):
+            summary = line.split(":", 1)[1].strip()
 
-    return category, score
+    return category, score, summary
 
 
-def _classify_with_gemini(signal_type: str, text: str, watch_keywords: list[str]) -> tuple[str, int]:
+def _classify_with_anthropic(signal_type: str, text: str, watch_keywords: list[str]) -> tuple[str, int, str]:
+    import anthropic
+
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+    message = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=150,
+        messages=[{"role": "user", "content": _build_prompt(signal_type, text, watch_keywords)}],
+    )
+
+    return _parse_response(message.content[0].text.strip())
+
+
+def _classify_with_gemini(signal_type: str, text: str, watch_keywords: list[str]) -> tuple[str, int, str]:
     import google.generativeai as genai
 
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
@@ -141,46 +152,8 @@ def _classify_with_gemini(signal_type: str, text: str, watch_keywords: list[str]
     model_name = (os.environ.get("GEMINI_MODEL") or "").strip() or "gemini-3.1-flash-lite"
     model = genai.GenerativeModel(model_name)
 
-    categories_str = ", ".join(CATEGORIES)
-    keywords_str = ", ".join(watch_keywords) if watch_keywords else "none"
-
-    prompt = f"""You are a competitive intelligence analyst. Classify the following signal from a B2B enterprise software company tracker.
-
-Signal type: {signal_type}
-Watch keywords (high-priority terms for this company): {keywords_str}
-
-Signal content:
-{text[:1500]}
-
-Respond with exactly two lines:
-CATEGORY: <one of: {categories_str}>
-SCORE: <integer 1-5>
-
-Scoring guide:
-5 - Major move, act today (funding round, acquisition, product launch, pricing overhaul, exec departure)
-4 - Significant, worth tracking (messaging shift, new integration, notable hire, partnership)
-3 - Moderate signal, include in digest (new blog topic, minor page copy change, new review, job posting)
-2 - Low signal, log only (footer tweak, minor wording change, low-engagement post)
-1 - Noise, ignore (nav update, formatting change, spam)
-
-If any watch keywords appear in the content, bias the score upward by 1."""
-
-    response = model.generate_content(prompt)
-    text_response = response.text.strip()
-    category = "messaging"
-    score = 2
-
-    for line in text_response.splitlines():
-        if line.startswith("CATEGORY:"):
-            raw = line.split(":", 1)[1].strip().lower()
-            if raw in CATEGORIES:
-                category = raw
-        elif line.startswith("SCORE:"):
-            match = re.search(r"\d", line)
-            if match:
-                score = max(1, min(5, int(match.group())))
-
-    return category, score
+    response = model.generate_content(_build_prompt(signal_type, text, watch_keywords))
+    return _parse_response(response.text.strip())
 
 
 def classify(event: dict, watch_keywords: list[str]) -> dict:
@@ -196,32 +169,33 @@ def classify(event: dict, watch_keywords: list[str]) -> dict:
 
     if os.environ.get("GEMINI_API_KEY"):
         try:
-            category, score = _classify_with_gemini(signal_type, text, watch_keywords)
+            category, score, summary = _classify_with_gemini(signal_type, text, watch_keywords)
         except Exception as e:
             print(f"[classify] Gemini failed, trying Anthropic: {e}")
             if os.environ.get("ANTHROPIC_API_KEY"):
                 try:
-                    category, score = _classify_with_anthropic(signal_type, text, watch_keywords)
+                    category, score, summary = _classify_with_anthropic(signal_type, text, watch_keywords)
                 except Exception as e2:
                     print(f"[classify] Anthropic failed, falling back to keywords: {e2}")
-                    category, score = _classify_by_keywords(signal_type, text)
+                    category, score, summary = _classify_by_keywords(signal_type, text)
             else:
-                category, score = _classify_by_keywords(signal_type, text)
+                category, score, summary = _classify_by_keywords(signal_type, text)
     elif os.environ.get("ANTHROPIC_API_KEY"):
         try:
-            category, score = _classify_with_anthropic(signal_type, text, watch_keywords)
+            category, score, summary = _classify_with_anthropic(signal_type, text, watch_keywords)
         except Exception as e:
             print(f"[classify] Anthropic failed, falling back to keywords: {e}")
-            category, score = _classify_by_keywords(signal_type, text)
+            category, score, summary = _classify_by_keywords(signal_type, text)
     else:
-        category, score = _classify_by_keywords(signal_type, text)
+        category, score, summary = _classify_by_keywords(signal_type, text)
 
     # Guard: leadership and funding are score-5 categories; if the AI assigned
     # one but no supporting keywords exist in the text, it hallucinated the
-    # category. Fall back to deterministic keyword rules instead.
+    # category. Fall back to deterministic keyword rules instead. Keep the
+    # LLM-written summary — it describes what changed, independent of category.
     if category in {"leadership", "funding"}:
         keywords = KEYWORD_RULES.get(category, [])
         if not any(kw in text.lower() for kw in keywords):
-            category, score = _classify_by_keywords(signal_type, text)
+            category, score, _ = _classify_by_keywords(signal_type, text)
 
-    return {**event, "haiku_category": category, "haiku_score": score}
+    return {**event, "haiku_category": category, "haiku_score": score, "haiku_summary": summary}

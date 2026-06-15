@@ -42,7 +42,7 @@ def _event_card(event: dict, show_company: bool = True) -> str:
     source = event.get("source", "")
     safe_href = _safe_url(source)
     source_display = html.escape(source[:80])
-    summary = html.escape(event.get("raw_diff", "").strip()[:400])
+    summary = html.escape((event.get("haiku_summary") or event.get("raw_diff", "")).strip()[:400])
     timestamp = html.escape(_format_date(event.get("timestamp", "")))
 
     company_row = ""
