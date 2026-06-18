@@ -97,15 +97,12 @@ def run_company(company: dict, defaults: dict) -> list[dict]:
             e["include_in_digest"] = sig.get("include_in_digest", True)
             events.append(e)
 
-    # Reddit
+    # Reddit (via Google Programmable Search; see signals/reddit.py)
     sig = resolve_signal(company_signals, "reddit", defaults)
-    subreddits = sig.get("subreddits", [])
-    search_terms = sig.get("search_terms", [])
-    if subreddits:
+    if sig.get("enabled", True):
         raw_events = check_reddit(
             name,
-            subreddits,
-            search_terms,
+            sig.get("search_terms", []),
             name,
             sig.get("alert", "daily"),
         )
