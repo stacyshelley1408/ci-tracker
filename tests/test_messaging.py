@@ -26,7 +26,7 @@ class TestIsNoise(unittest.TestCase):
 
     def test_real_signal_is_not_noise(self):
         signal = [
-            "Archer launches new AI governance module for continuous compliance",
+            "LogicGate launches new AI governance module for continuous compliance",
             "Now trusted by 14,000 customers worldwide",
             "Introducing usage-based pricing for mid-market teams",
         ]

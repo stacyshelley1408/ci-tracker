@@ -37,82 +37,14 @@ defaults:
         - compliance
       search_terms: []
 
+# Competitor set mirrors Terrain's data/competitors/ (Archer IRM is Terrain's
+# customer, not a competitor, so it is not tracked here). Terrain competitors:
+# servicenow-grc, metricstream, onetrust-grc, ibm-openpages, optro, logicgate.
 companies:
-  - name: Archer IRM
-    base_url: https://www.archerirm.com
-    active: true
-    significance_threshold: 3
-    watch_keywords:
-      - Evolv
-      - ServiceNow
-      - AI governance
-      - funding
-      - acquisition
-      - Cinven
-      - GRC
-      - category
-    signals:
-      job_postings:
-        alert: daily
-        filters:
-          departments:
-            - marketing
-            - product
-            - engineering
-            - sales
-          seniority:
-            - director
-            - vp
-            - head
-            - chief
-      reddit:
-        search_terms:
-          - "Archer IRM"
-          - "Archer GRC"
-          - "Archer vs"
-          - "integrated risk management"
-          - "GRC platform"
-      reviews:
-        platforms:
-          - g2
-          - gartner_peer_insights
-          - capterra
-          - trustradius
-          - peerspot
-    pages:
-      - url: /
-      - url: /evolv
-      - url: /evolv-compliance
-      - url: /evolv-risk
-      - url: /evolv-intelligence
-      - url: /ai-governance
-      - url: /analyst-reports
-      - url: /latest-news
-      - url: /about-us
-        alert: weekly
-      - url: /clients
-        alert: weekly
-      - url: /enterprise-operational-risk
-        alert: weekly
-      - url: /it-security-risk-management
-        alert: weekly
-      - url: /third-party-governance
-        alert: weekly
-      - url: /esg
-        alert: weekly
-    careers_url: https://www.archerirm.com/careers
-    news_feeds: []  # no RSS feed found; /latest-news is monitored as a Tier 1 page diff instead
-    review_urls:
-      g2: https://www.g2.com/products/archer-integrated-risk-management/reviews
-      gartner_peer_insights: https://www.gartner.com/reviews/market/integrated-risk-management/vendor/archer/product/archer
-      capterra: https://www.capterra.com/p/archer-irm/
-      trustradius: https://www.trustradius.com/products/archer-integrated-risk-management-platform/reviews
-      peerspot: https://www.peerspot.com/products/archer-irm-reviews
-
   - name: ServiceNow GRC
     base_url: https://www.servicenow.com
     active: true
-    significance_threshold: 4
+    significance_threshold: 3
     watch_keywords:
       - GRC
       - risk
@@ -172,10 +104,14 @@ companies:
       trustradius: https://www.trustradius.com/products/metricstream/reviews
       peerspot: https://www.peerspot.com/products/metricstream-reviews
 
-  - name: AuditBoard
+  # Optro = AuditBoard rebrand (see Terrain data/competitors/optro.json). The live
+  # site and review listings are still served on the auditboard.com domain and
+  # auditboard review slugs; a redirect/relaunch to optro.com will surface as a
+  # high-signal messaging diff when it lands.
+  - name: Optro
     base_url: https://www.auditboard.com
     active: true
-    significance_threshold: 4
+    significance_threshold: 3
     watch_keywords:
       - AI
       - GRC
@@ -183,6 +119,7 @@ companies:
       - compliance
       - funding
       - Optro
+      - rebrand
       - acquisition
     signals:
       reviews:
@@ -262,3 +199,38 @@ companies:
       gartner_peer_insights: https://www.gartner.com/reviews/market/integrated-risk-management/vendor/ibm/product/ibm-openpages
       trustradius: https://www.trustradius.com/products/ibm-openpages-grc-platform/reviews
       peerspot: https://www.peerspot.com/products/ibm-openpages-reviews
+
+  # LogicGate (Risk Cloud) = new Evolv competitor (see Terrain data/competitors/logicgate.json).
+  # Review-site slugs below are best-effort; reviews are treated as best-effort anyway.
+  - name: LogicGate
+    base_url: https://www.logicgate.com
+    active: true
+    significance_threshold: 4
+    watch_keywords:
+      - AI
+      - GRC
+      - risk
+      - compliance
+      - Risk Cloud
+      - no-code
+      - funding
+      - acquisition
+    signals:
+      reviews:
+        platforms:
+          - g2
+          - gartner_peer_insights
+          - trustradius
+          - peerspot
+    pages:
+      - url: /
+      - url: /platform/
+      - url: /risk-cloud/
+    careers_url: https://www.logicgate.com/careers/
+    news_feeds:
+      - https://www.logicgate.com/blog/feed/
+    review_urls:
+      g2: https://www.g2.com/products/logicgate-risk-cloud/reviews
+      gartner_peer_insights: https://www.gartner.com/reviews/market/integrated-risk-management/vendor/logicgate
+      trustradius: https://www.trustradius.com/products/logicgate/reviews
+      peerspot: https://www.peerspot.com/products/logicgate-risk-cloud-reviews
