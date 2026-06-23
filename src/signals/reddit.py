@@ -58,6 +58,19 @@ def _subreddit(link: str) -> str:
     return m.group(1).lower() if m else ""
 
 
+def _matches_thread(term: str, title: str) -> bool:
+    # Decide whether `term` actually identifies the LINKED thread. Match on the
+    # title only -- never the body. Tavily's `content` field for a Reddit page
+    # bleeds in Reddit's inline "promoted"/"recommended posts" rail, which is
+    # foreign to the thread the URL points at. A GRC vendor ad naming every
+    # competitor ("For those using Archer, ServiceNow GRC, AuditBoard, or
+    # MetricStream...") was matching threads on unrelated topics (e.g. an r/PESU
+    # IoT-syllabus post) and firing false alerts. The post title is bound 1:1 to
+    # the thread (Reddit derives the URL slug from it), so it is the only field
+    # safe to gate on.
+    return term.lower() in title.lower()
+
+
 def _search(api_key: str, term: str) -> list[dict]:
     payload = {
         "query": term,
@@ -91,8 +104,9 @@ def check_reddit(
     Searches Reddit for company mentions via the Tavily search API, scoped to
     reddit.com through include_domains, avoiding reddit.com's IP throttling of CI
     runners. One query per brand term (Tavily is semantic, not boolean). A hit is
-    kept only if the searched term appears literally in the title or content,
-    since ranking is fuzzy. Returns events for permalinks not seen in the previous
+    kept only if the searched term appears literally in the post title, since
+    ranking is fuzzy and the body field is polluted by Reddit's promoted/
+    recommended-post rail. Returns events for permalinks not seen in the previous
     snapshot. Skips silently if TAVILY_API_KEY is unset.
     """
     events = []
@@ -118,9 +132,10 @@ def check_reddit(
 
             title = _clean(hit.get("title", ""))
             content = _clean(hit.get("content", ""))
-            combined = f"{title} {content}"
-            # Ranking is fuzzy; require the literal term to drop false positives.
-            if term.lower() not in combined.lower():
+            # Ranking is fuzzy and the body field is contaminated by Reddit's
+            # promoted/recommended rail, so require the literal term in the
+            # title -- the only field bound to the linked thread.
+            if not _matches_thread(term, title):
                 continue
 
             new_seen_ids.add(post_id)
