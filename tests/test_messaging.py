@@ -8,7 +8,7 @@ import unittest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-from signals.messaging import _diff_text, _is_noise  # noqa: E402
+from signals.messaging import _diff_text, _is_noise, _is_error_page  # noqa: E402
 
 
 class TestIsNoise(unittest.TestCase):
@@ -84,6 +84,30 @@ class TestDiffText(unittest.TestCase):
             _diff_text(old, new),
             "Added: alpha | middle | zebra",
         )
+
+
+class TestIsErrorPage(unittest.TestCase):
+    def test_akamai_reference_page_is_error(self):
+        # The body that produced the bogus ServiceNow "MESSAGING SHIFT" 3/5.
+        page = ("Access Denied You don't have permission to access this "
+                "resource. Reference #18.840c0317.1781805701.2a0a1b99 "
+                "https://errors.edgesuite.net/18.840c0317.1781805701.2a0a1b99")
+        self.assertTrue(_is_error_page(page))
+
+    def test_cloudfront_and_cloudflare_pages_are_errors(self):
+        self.assertTrue(_is_error_page("The request could not be satisfied. Request blocked."))
+        self.assertTrue(_is_error_page("Attention Required! Cloudflare. Checking your browser before accessing."))
+        self.assertTrue(_is_error_page("502 Bad Gateway nginx"))
+
+    def test_real_page_is_not_error(self):
+        page = "Integrated Risk Management. " * 200  # long, no error signature
+        self.assertFalse(_is_error_page(page))
+
+    def test_long_page_quoting_error_phrase_is_not_error(self):
+        # A real article that happens to mention "access denied" should survive,
+        # because it is long. Length gate protects legitimate content.
+        page = ("Our security blog covers what an access denied response means. " * 60)
+        self.assertFalse(_is_error_page(page))
 
 
 if __name__ == "__main__":

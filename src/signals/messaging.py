@@ -82,6 +82,38 @@ def _is_noise(fragment: str) -> bool:
     return any(marker in f for marker in _NOISE_MARKERS)
 
 
+# A monitored page sometimes comes back as a CDN/WAF error page instead of the
+# real content (origin down, rate-limit, bot block). The body is short and its
+# only "content" is a rotating error-reference ID, so two such fetches diff
+# against each other and fire a bogus messaging shift (this surfaced as a
+# ServiceNow "Reference #18.x... errors.edgesuite.net" 3/5 alert). Worse, if an
+# error page overwrites a good baseline, the next real fetch diffs against it
+# and fires an even larger false shift. Treat these as a failed fetch: don't
+# emit, don't overwrite the snapshot.
+_ERROR_PAGE_MARKERS = (
+    "errors.edgesuite.net",          # Akamai reference-error page
+    "reference #",                   # Akamai error-reference line
+    "the request could not be satisfied",  # CloudFront
+    "request blocked",               # CloudFront/WAF
+    "access denied",                 # generic WAF / origin 403 page
+    "you don't have permission to access",  # Apache/Akamai 403
+    "attention required",            # Cloudflare challenge
+    "checking your browser before",  # Cloudflare interstitial
+    "ddos protection by",            # Cloudflare
+    "502 bad gateway", "503 service", "504 gateway",
+)
+
+
+def _is_error_page(text: str) -> bool:
+    # Error pages are short; real marketing pages that happen to quote one of
+    # these phrases in body copy are long. Gate on length to avoid clipping a
+    # legitimate page, then require an error signature.
+    t = text.lower()
+    if len(t) > 1500:
+        return False
+    return any(marker in t for marker in _ERROR_PAGE_MARKERS)
+
+
 # Skip-navigation links ("Skip to Main Content", "Skip to Content") are
 # accessibility UI that changes independently of page content. Strip them
 # from segments before comparison so a site-wide skip-nav tweak doesn't
@@ -147,6 +179,14 @@ def check_messaging(company: str, base_url: str, pages: list[dict]) -> list[dict
                 page.wait_for_timeout(1500)
 
                 text = _extract_text(page)
+
+                # A CDN/WAF error page is a failed fetch dressed as content.
+                # Skip without saving so the good baseline is preserved.
+                if _is_error_page(text):
+                    print(f"[messaging] error page for {full_url}, skipping")
+                    page.close()
+                    continue
+
                 content_hash = hashlib.md5(text.encode()).hexdigest()
                 snapshot_path = _snapshot_path(company, full_url)
                 previous = _load_snapshot(snapshot_path)
