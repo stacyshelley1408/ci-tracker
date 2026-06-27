@@ -134,5 +134,89 @@
   {
     "title": "Cookie Notice",
     "url": "/cookie-notice"
+  },
+  {
+    "title": "Cookie Notice.",
+    "url": "https://optro.ai/cookie-notice/"
+  },
+  {
+    "title": "Cloudflare Inc.",
+    "url": "https://www.cloudflare.com/privacypolicy"
+  },
+  {
+    "title": "Amazon Web Services, Inc.",
+    "url": "https://aws.amazon.com/privacy/"
+  },
+  {
+    "title": "Amazon.com Inc.",
+    "url": "https://advertising.amazon.com/legal/privacy-notice"
+  },
+  {
+    "title": "Khoros LLC",
+    "url": "https://khoros.com/privacy"
+  },
+  {
+    "title": "CookieScript",
+    "url": "https://cookie-script.com/privacy-policy.html"
+  },
+  {
+    "title": "Google LLC",
+    "url": "https://policies.google.com/privacy"
+  },
+  {
+    "title": "Symfony SAS",
+    "url": "https://connect.symfony.com/privacy-policy"
+  },
+  {
+    "title": "StackAdapt",
+    "url": "https://www.stackadapt.com/privacy"
+  },
+  {
+    "title": "Wingify Software Pvt. Ltd",
+    "url": "https://vwo.com/privacy-policy/"
+  },
+  {
+    "title": "Google",
+    "url": "https://policies.google.com/privacy"
+  },
+  {
+    "title": "LinkedIn Corporation",
+    "url": "https://www.linkedin.com/legal/privacy-policy"
+  },
+  {
+    "title": "Khoros",
+    "url": "https://khoros.com/privacy-policy"
+  },
+  {
+    "title": "Microsoft Corporation",
+    "url": "https://privacy.microsoft.com/privacystatement"
+  },
+  {
+    "title": "Tremor Video DSP",
+    "url": "https://www.tremorinternational.com/privacy-policy/"
+  },
+  {
+    "title": "Tremor International Ltd",
+    "url": "https://www.tremorinternational.com/privacy-policy/"
+  },
+  {
+    "title": "Meta Platform Inc.",
+    "url": "https://www.facebook.com/policy.php"
+  },
+  {
+    "title": "Casale Media Inc.",
+    "url": "https://casalemedia.com/"
+  },
+  {
+    "title": "Wingify",
+    "url": "https://vwo.com/privacy-policy/"
+  },
+  {
+    "title": "Adobe Inc.",
+    "url": "https://www.adobe.com/privacy/policy.html"
+  },
+  {
+    "title": "report",
+    "url": "https://cookie-script.com/cookie-report?identifier=c67f8220b6e4be37f1eb65b144f4af24"
   }
 ]
