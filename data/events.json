@@ -14655,5 +14655,41 @@
     "haiku_category": "messaging",
     "haiku_score": 3,
     "haiku_summary": "IBM updated the OpenPages GRC landing page to include new visual assets highlighting embedded AI capabilities, reinforcing their competitive positioning around AI-driven enterprise risk management."
+  },
+  {
+    "event_id": "73c228f9-5ac4-477a-a922-33b75261846d",
+    "timestamp": "2026-07-04T16:01:28.590971+00:00",
+    "run_id": "28711679071",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 46% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 38% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "73901307740f8ec4b5f6505e141dfe76",
+    "current_hash": "5a6eb8ecd0d343620e1d22f761609470",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 2,
+    "haiku_summary": "The website content reflects only minor, non-substantive formatting or progress-bar text updates that do not impact the positioning of the OpenPages or GRC product suite."
+  },
+  {
+    "event_id": "b856f306-39b9-4574-97cb-f586dbdbfba7",
+    "timestamp": "2026-07-04T16:01:29.217022+00:00",
+    "run_id": "28711679071",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: 46% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 39% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "b8f451c4e00b6ec23e9a7cc1923fa4d4",
+    "current_hash": "c2df26e0d232d2277bf0936a527b32c8",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 2,
+    "haiku_summary": "The website updated the loading percentage text without changing any underlying product positioning or claims related to OpenPages or their GRC modules."
   }
 ]
