@@ -14691,5 +14691,41 @@
     "haiku_category": "messaging",
     "haiku_score": 2,
     "haiku_summary": "The website updated the loading percentage text without changing any underlying product positioning or claims related to OpenPages or their GRC modules."
+  },
+  {
+    "event_id": "ca1acf53-fa4a-4226-914e-595a9f018bd4",
+    "timestamp": "2026-07-05T16:06:58.026789+00:00",
+    "run_id": "28746705942",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 39% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 46% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "5a6eb8ecd0d343620e1d22f761609470",
+    "current_hash": "b8248cb1a2f2e41ff42e1b3727ba8c0d",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 2,
+    "haiku_summary": "The website updated the estimated loading percentages for its modular use cases section, which constitutes a minor technical or formatting change rather than a substantive shift in product positioning or strategic messaging."
+  },
+  {
+    "event_id": "e3959309-84b9-468f-bcbd-5511ad852a9a",
+    "timestamp": "2026-07-05T16:06:58.702602+00:00",
+    "run_id": "28746705942",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: 41% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 46% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "c2df26e0d232d2277bf0936a527b32c8",
+    "current_hash": "0d8e53f080f92e525715fce1f206751f",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 2,
+    "haiku_summary": "The website updated minor percentage figures in a loading or progress indicator element, which constitutes a non-substantive UI/formatting change rather than a strategic shift in their GRC or AI messaging."
   }
 ]
