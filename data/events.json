@@ -14799,5 +14799,41 @@
     "haiku_category": "messaging",
     "haiku_score": 2,
     "haiku_summary": "The website updated its percentage-based progress indicators or metadata within the module use cases section, but the actual descriptive text remains identical, indicating no substantive change to product positioning or strategy."
+  },
+  {
+    "event_id": "1112052b-5e03-4907-b67f-1bd7acef33cc",
+    "timestamp": "2026-07-06T17:43:00.504478+00:00",
+    "run_id": "28811194717",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 41% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment | Book live demo Explore more Documentation IBM GRC community Products Consulting services Industries Case studies Financing Research LinkedIn X Instagram YouTube Podcasts Business partners Documentation Events Newsletters Support TechXchange community Overview Careers Investor relations Leadership Newsroom Security, privacy and trust Contact IBM Privacy Terms of use Accessibility [logos/images: A man walking past a \"I love AI\" sign on the wall, Gartner Logo, IDC Logo, Four aligned sheets, with a bar graphic, Illustration to represent the embedded AI capabilities of OpenPages GRC, Illustration to depict Enterprise wide GRC capabilities of OpenPages., Illustration of four plants in pot representing how connect GRC to enterprise ecosystem, animation-image, IBM logo, Citi logo, navigator gas logo]\nRemoved: 40% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment | Book live demo Explore more Documentation IBM GRC community Products Consulting services Industries Case studies Financing Research LinkedIn X Instagram YouTube Podcasts Business partners Documentation Events Newsletters Support TechXchange community Overview Careers Investor relations Leadership Newsroom Security, privacy and trust Contact IBM Privacy Terms of use Accessibility [logos/images: A man walking past a \"I love AI\" sign on the wall, Gartner Logo, IDC Logo, Four aligned sheets, with a bar graphic, Illustration to represent the embedded AI capabilities of OpenPages GRC, Illustration to depict Enterprise wide GRC capabilities of OpenPages., Illustration of four plants in pot representing how connect GRC to enterprise ecosystem, animation-image, IBM logo, Citi logo, navigator gas logo, close icon, close icon]",
+    "previous_hash": "a4b1a979b180a969c7a09d1101b2a5fb",
+    "current_hash": "9ec8e64b843b2f29ae2028d8d732ca50",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 3,
+    "haiku_summary": "IBM updated the OpenPages GRC landing page to include new visual assets highlighting embedded AI capabilities, signaling a stronger marketing focus on integrating AI-driven features into their existing enterprise compliance ecosystem."
+  },
+  {
+    "event_id": "84546f9f-81a2-448c-8ab7-fbd688b4b27b",
+    "timestamp": "2026-07-06T17:43:01.296491+00:00",
+    "run_id": "28811194717",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: 50% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 36% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "503ec2b77df328139c507bb149c676d7",
+    "current_hash": "c5e657411090faaa7d53f7ae59e3febc",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 2,
+    "haiku_summary": "The company increased a numerical percentage associated with a module progress indicator, which is a minor UI or functional update that does not alter the underlying value proposition regarding their modular GRC or AI-integrated software solutions."
   }
 ]
