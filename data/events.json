@@ -14925,5 +14925,41 @@
     "haiku_category": "messaging",
     "haiku_score": 2,
     "haiku_summary": "The company updated its privacy statement, which represents a standard administrative update rather than a substantive shift in product positioning or strategic focus related to their GRC or AI offerings."
+  },
+  {
+    "event_id": "ff994019-0461-47a7-844a-d687bc01d68a",
+    "timestamp": "2026-07-08T16:30:21.451416+00:00",
+    "run_id": "28958707346",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: Book live demo Explore more Documentation IBM GRC community Products Consulting services Industries Case studies Financing Research LinkedIn X Instagram YouTube Podcasts Business partners Documentation Events Newsletters Support TechXchange community Overview Careers Investor relations Leadership Newsroom Security, privacy and trust Contact IBM Privacy Terms of use Accessibility [logos/images: A man walking past a \"I love AI\" sign on the wall, Gartner Logo, IDC Logo, Four aligned sheets, with a bar graphic, Illustration to represent the embedded AI capabilities of OpenPages GRC, Illustration to depict Enterprise wide GRC capabilities of OpenPages., Illustration of four plants in pot representing how connect GRC to enterprise ecosystem, animation-image, IBM logo, Citi logo, navigator gas logo]\nRemoved: Book live demo Explore more Documentation IBM GRC community Products Consulting services Industries Case studies Financing Research LinkedIn X Instagram YouTube Podcasts Business partners Documentation Events Newsletters Support TechXchange community Overview Careers Investor relations Leadership Newsroom Security, privacy and trust Contact IBM Privacy Terms of use Accessibility Your privacy choices [logos/images: A man walking past a \"I love AI\" sign on the wall, Gartner Logo, IDC Logo, Four aligned sheets, with a bar graphic, Illustration to represent the embedded AI capabilities of OpenPages GRC, Illustration to depict Enterprise wide GRC capabilities of OpenPages., Illustration of four plants in pot representing how connect GRC to enterprise ecosystem, animation-image, IBM logo, Citi logo, navigator gas logo]",
+    "previous_hash": "2eedd358b2987f43c9a5b86a2f7739d4",
+    "current_hash": "b8248cb1a2f2e41ff42e1b3727ba8c0d",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 3,
+    "haiku_summary": "IBM updated the visual assets for the OpenPages GRC landing page, including specific imagery highlighting embedded AI capabilities and enterprise-wide connectivity, signaling an increased marketing emphasis on the product's AI integration and ecosystem scalability."
+  },
+  {
+    "event_id": "6c8e0359-f457-4660-a21d-c83c9505e974",
+    "timestamp": "2026-07-08T16:30:22.140705+00:00",
+    "run_id": "28958707346",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "job_posting",
+    "source": "https://www.ibm.com/employment/",
+    "alert": "weekly",
+    "raw_diff": "New posting: privacy\u00a0statement",
+    "job_title": "privacy\u00a0statement",
+    "job_url": "https://www.ibm.com/privacy",
+    "include_in_digest": true,
+    "haiku_category": "hiring",
+    "haiku_score": 3,
+    "haiku_summary": "The company posted a new privacy statement, which is a minor administrative update that does not contain any of the tracked GRC, risk, or AI-related product keywords."
   }
 ]
