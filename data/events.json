@@ -16118,5 +16118,23 @@
     "haiku_category": "messaging",
     "haiku_score": 1,
     "haiku_summary": "The website content shows a negligible percentage change in a progress bar status that does not reflect a substantive shift in product positioning or strategic messaging."
+  },
+  {
+    "event_id": "d8345a33-8abf-461a-aaa1-22f9b0fc0984",
+    "timestamp": "2026-07-19T15:56:34.986465+00:00",
+    "run_id": "29693782399",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 38% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 41% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "67ca7e64a515e48edfbe067599211708",
+    "current_hash": "338350af335031fc8dc667822295cb22",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 2,
+    "haiku_summary": "The change consists solely of a minor percentage adjustment in an \"Estimated time remaining\" UI element, which is technical noise rather than a substantive shift in messaging regarding their GRC or AI platform capabilities."
   }
 ]
