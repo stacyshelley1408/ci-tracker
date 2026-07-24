@@ -140,6 +140,10 @@
     "url": "https://optro.ai/cookie-notice/"
   },
   {
+    "title": "Cloudflare Inc.",
+    "url": "https://www.cloudflare.com/privacypolicy"
+  },
+  {
     "title": "Amazon Web Services, Inc.",
     "url": "https://aws.amazon.com/privacy/"
   },
@@ -150,14 +154,6 @@
   {
     "title": "Khoros LLC",
     "url": "https://khoros.com/privacy"
-  },
-  {
-    "title": "Cloudflare Inc.",
-    "url": "https://www.cloudflare.com/privacypolicy"
-  },
-  {
-    "title": "Oracle Corporation",
-    "url": "https://www.oracle.com/legal/privacy/addthis-privacy-policy.html"
   },
   {
     "title": "CookieScript",
@@ -176,6 +172,10 @@
     "url": "https://www.stackadapt.com/privacy"
   },
   {
+    "title": "Wingify Software Pvt. Ltd",
+    "url": "https://vwo.com/privacy-policy/"
+  },
+  {
     "title": "Google",
     "url": "https://policies.google.com/privacy"
   },
@@ -192,20 +192,20 @@
     "url": "https://privacy.microsoft.com/privacystatement"
   },
   {
-    "title": "Casale Media Inc.",
-    "url": "https://casalemedia.com/"
-  },
-  {
-    "title": "Meta Platform Inc.",
-    "url": "https://www.facebook.com/policy.php"
-  },
-  {
     "title": "Tremor Video DSP",
     "url": "https://www.tremorinternational.com/privacy-policy/"
   },
   {
     "title": "Tremor International Ltd",
     "url": "https://www.tremorinternational.com/privacy-policy/"
+  },
+  {
+    "title": "Meta Platform Inc.",
+    "url": "https://www.facebook.com/policy.php"
+  },
+  {
+    "title": "Casale Media Inc.",
+    "url": "https://casalemedia.com/"
   },
   {
     "title": "Wingify",
@@ -216,11 +216,7 @@
     "url": "https://www.adobe.com/privacy/policy.html"
   },
   {
-    "title": "Wingify Software Pvt. Ltd",
-    "url": "https://vwo.com/privacy-policy/"
-  },
-  {
     "title": "report",
-    "url": "https://cookie-script.com/cookie-report?identifier=cd3ab9f3b44223a373ec6d2a0fe860a7"
+    "url": "https://cookie-script.com/cookie-report?identifier=c67f8220b6e4be37f1eb65b144f4af24"
   }
 ]

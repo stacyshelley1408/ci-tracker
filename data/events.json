@@ -16532,5 +16532,41 @@
     "haiku_category": "messaging",
     "haiku_score": 2,
     "haiku_summary": "The website text remained identical, with only the numerical progress percentages (42% vs 49%) changing; this is a technical or loading artifact rather than a substantive shift in positioning for their modular GRC or AI offerings."
+  },
+  {
+    "event_id": "a1862bb7-3fd6-402b-a796-7387766b73d0",
+    "timestamp": "2026-07-24T16:31:01.598356+00:00",
+    "run_id": "30109145211",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 41% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 40% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "5c63ed984555147cb4aee212b812a4ff",
+    "current_hash": "67ca7e64a515e48edfbe067599211708",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 1,
+    "haiku_summary": "The change represents a minor formatting or technical update to the \"Estimated time remaining\" tracker on the website, containing no substantive modifications to the platform's messaging or product positioning."
+  },
+  {
+    "event_id": "85ca947d-2bcc-4de0-9700-2761c4a60b11",
+    "timestamp": "2026-07-24T16:31:02.627553+00:00",
+    "run_id": "30109145211",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: 44% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 42% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "b24e9b5ea769c88c6ed5a809eef9cb90",
+    "current_hash": "5aaa4ddfa36a69b029447460f9882379",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 1,
+    "haiku_summary": "The text change involves a negligible 2% adjustment to an automated \"estimated time remaining\" progress indicator, which is a UI/performance artifact rather than a substantive change to product messaging or strategy."
   }
 ]
