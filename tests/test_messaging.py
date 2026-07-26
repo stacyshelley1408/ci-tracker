@@ -2,13 +2,26 @@
 
 Run with:  python -m pytest tests/  (or: python -m unittest discover tests)
 """
+import json
 import os
 import sys
+import tempfile
 import unittest
+from pathlib import Path
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-from signals.messaging import _diff_text, _is_noise, _is_error_page  # noqa: E402
+from signals.messaging import (  # noqa: E402
+    MONITOR_FAILURE_THRESHOLD,
+    _diff_text,
+    _has_baseline,
+    _is_error_page,
+    _is_noise,
+    _monitor_health_event,
+    _record_failure,
+    _save_snapshot,
+    _should_warn,
+)
 
 
 class TestIsNoise(unittest.TestCase):
@@ -108,6 +121,94 @@ class TestIsErrorPage(unittest.TestCase):
         # because it is long. Length gate protects legitimate content.
         page = ("Our security blog covers what an access denied response means. " * 60)
         self.assertFalse(_is_error_page(page))
+
+
+class TestMonitorHealth(unittest.TestCase):
+    """The consecutive-failure warning: a dead monitor must not read as a quiet competitor."""
+
+    def setUp(self):
+        self._tmp = tempfile.TemporaryDirectory()
+        self.path = Path(self._tmp.name) / "snap.json"
+
+    def tearDown(self):
+        self._tmp.cleanup()
+
+    def test_failures_accumulate(self):
+        self.assertEqual(_record_failure(self.path, "error page"), 1)
+        self.assertEqual(_record_failure(self.path, "error page"), 2)
+        self.assertEqual(_record_failure(self.path, "error page"), 3)
+
+    def test_failure_preserves_the_good_baseline(self):
+        # The reason a bad fetch is treated as a failure is that the last good
+        # content survives it. Recording the failure must not disturb that.
+        _save_snapshot(self.path, "real page text", "hash123")
+        _record_failure(self.path, "CDN or WAF error page")
+        saved = json.loads(self.path.read_text())
+        self.assertEqual(saved["content"], "real page text")
+        self.assertEqual(saved["hash"], "hash123")
+        self.assertEqual(saved["consecutive_failures"], 1)
+        self.assertEqual(saved["last_failure_reason"], "CDN or WAF error page")
+
+    def test_success_resets_the_streak(self):
+        _record_failure(self.path, "fetch error")
+        _record_failure(self.path, "fetch error")
+        _save_snapshot(self.path, "back up", "hash456")
+        self.assertEqual(json.loads(self.path.read_text())["consecutive_failures"], 0)
+        self.assertEqual(_record_failure(self.path, "fetch error"), 1)
+
+    def test_failure_only_snapshot_is_not_a_baseline(self):
+        # A URL whose very first fetch failed has a snapshot file but no content.
+        # Diffing against it would report a wholesale rewrite on the next success.
+        _record_failure(self.path, "fetch error")
+        self.assertFalse(_has_baseline(json.loads(self.path.read_text())))
+        self.assertFalse(_has_baseline(None))
+        self.assertFalse(_has_baseline({"content": ""}))
+        self.assertTrue(_has_baseline({"content": "real text"}))
+
+    def test_poisoned_baseline_is_rejected(self):
+        # The exact body stored for all three ServiceNow messaging URLs on the
+        # data branch, saved before the error-page filter shipped. Diffing a
+        # recovered page against it fires the wholesale false shift the filter
+        # exists to prevent, so it must not count as a baseline.
+        poisoned = ('Access Denied You don\'t have permission to access '
+                    '"http://www.servicenow.com/solutions/governance-risk-compliance.html" '
+                    'on this server. Reference #18.635ed617.1780849033.e90d36d')
+        self.assertFalse(_has_baseline({"content": poisoned}))
+        # A real page is long, so the length gate keeps it safe from this check.
+        self.assertTrue(_has_baseline({"content": "Real GRC marketing copy. " * 100}))
+
+    def test_warns_on_crossing_then_weekly(self):
+        # Silent below the threshold, one warning on the crossing, then weekly.
+        # Warning every run would have meant 35 alerts for a 5-week outage.
+        for n in range(1, MONITOR_FAILURE_THRESHOLD):
+            self.assertFalse(_should_warn(n))
+        self.assertTrue(_should_warn(MONITOR_FAILURE_THRESHOLD))
+        self.assertFalse(_should_warn(MONITOR_FAILURE_THRESHOLD + 1))
+        self.assertTrue(_should_warn(7))
+        self.assertTrue(_should_warn(14))
+        self.assertFalse(_should_warn(15))
+
+    def test_event_is_prescored_so_it_survives_thresholds(self):
+        # Configured significance thresholds are 3 and 4, so the warning has to
+        # clear 4 to reach an alert on every company.
+        ev = _monitor_health_event("ServiceNow GRC", "https://x.test/grc", 5, "CDN or WAF error page", None)
+        self.assertEqual(ev["signal_type"], "monitor_health")
+        self.assertEqual(ev["haiku_category"], "monitor_health")
+        self.assertGreaterEqual(ev["haiku_score"], 4)
+        self.assertEqual(ev["alert"], "daily")
+        self.assertIn("No successful fetch on record", ev["raw_diff"])
+
+    def test_event_reports_the_last_good_fetch(self):
+        ev = _monitor_health_event("Acme", "https://x.test/p", 3, "fetch error", "2026-06-23T11:00:00+00:00")
+        self.assertIn("2026-06-23", ev["raw_diff"])
+
+    def test_prescored_event_skips_the_classifier(self):
+        # classify() must pass it through untouched: the category is a fact about
+        # our collection, and a hallucinated low score would bury the alert.
+        from classify import classify
+        ev = _monitor_health_event("Acme", "https://x.test/p", 3, "fetch error", None)
+        self.assertEqual(classify(ev, [])["haiku_score"], ev["haiku_score"])
+        self.assertEqual(classify(ev, [])["haiku_category"], "monitor_health")
 
 
 if __name__ == "__main__":

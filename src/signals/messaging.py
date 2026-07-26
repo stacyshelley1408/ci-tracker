@@ -2,10 +2,27 @@ import hashlib
 import json
 import os
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 SNAPSHOTS_DIR = Path(__file__).parents[2] / "snapshots"
+
+# A monitor that fails every run is indistinguishable from a competitor that
+# never changes: both produce no events. The error-page filter below made that
+# worse, not better -- it correctly stopped emitting garbage diffs, and in doing
+# so turned a loud failure into a silent one. ServiceNow's three monitored URLs
+# erred from 2026-06-05 and nothing reported it; after the filter shipped on
+# 2026-06-23 the noise stopped and five weeks of silence read as "no news".
+#
+# So a failed fetch now increments a per-URL counter, and crossing the threshold
+# emits a monitor_health event through the normal alert path. Success resets it.
+MONITOR_FAILURE_THRESHOLD = 3
+
+# Warn on the crossing, then once a week while it stays broken. Warning every
+# run would have meant 35 alerts for the ServiceNow outage, which is how a real
+# signal gets filtered to trash by the person receiving it.
+MONITOR_REWARN_EVERY = 7
 
 
 def _snapshot_path(company: str, url: str) -> Path:
@@ -51,12 +68,92 @@ def _load_snapshot(path: Path) -> dict | None:
     return None
 
 
+def _has_baseline(snapshot: dict | None) -> bool:
+    """
+    True only when a snapshot carries content worth diffing against.
+
+    A snapshot can now exist with failure metadata and no content, when the very
+    first fetch of a URL failed. Treating that as a baseline would diff real page
+    text against an empty string on the next success and fire a false wholesale
+    rewrite, so presence of the FILE is no longer the test. Presence of content is.
+
+    It also rejects a baseline that is itself an error page. The error-page filter
+    stopped NEW poisoning when it shipped, but never cleaned what was already
+    stored: all three ServiceNow messaging baselines on the data branch are a
+    239-char "Access Denied" body saved before the filter existed. Diffing a
+    recovered page against one of those fires exactly the wholesale false shift
+    the filter was built to prevent. Rejecting it here self-heals -- the next good
+    fetch replaces the poison instead of diffing against it.
+    """
+    content = (snapshot or {}).get("content")
+    if not content:
+        return False
+    return not _is_error_page(content)
+
+
 def _save_snapshot(path: Path, content: str, content_hash: str):
+    """Records a successful fetch, which also clears any failure streak."""
     SNAPSHOTS_DIR.mkdir(exist_ok=True)
     path.write_text(json.dumps({
         "content": content,
         "hash": content_hash,
+        "last_success": datetime.now(timezone.utc).isoformat(),
+        "consecutive_failures": 0,
     }))
+
+
+def _record_failure(path: Path, reason: str) -> int:
+    """
+    Increments this URL's consecutive-failure count and returns the new total.
+
+    Deliberately preserves content and hash: the whole point of treating a bad
+    fetch as a failure is that the good baseline survives it. Only the failure
+    metadata is written.
+    """
+    SNAPSHOTS_DIR.mkdir(exist_ok=True)
+    snapshot = _load_snapshot(path) or {}
+    snapshot["consecutive_failures"] = snapshot.get("consecutive_failures", 0) + 1
+    snapshot["last_failure"] = datetime.now(timezone.utc).isoformat()
+    snapshot["last_failure_reason"] = reason
+    path.write_text(json.dumps(snapshot))
+    return snapshot["consecutive_failures"]
+
+
+def _should_warn(failures: int) -> bool:
+    """Warn on the threshold crossing, then every MONITOR_REWARN_EVERY runs after."""
+    if failures < MONITOR_FAILURE_THRESHOLD:
+        return False
+    return failures == MONITOR_FAILURE_THRESHOLD or failures % MONITOR_REWARN_EVERY == 0
+
+
+def _monitor_health_event(company: str, url: str, failures: int, reason: str, last_success: str | None) -> dict:
+    """
+    A monitor-health warning, shaped like any other event so it rides the existing
+    alert and digest path.
+
+    Pre-scored on purpose. This is a deterministic fact about our own collection,
+    not a competitor move, so sending it to the LLM classifier would spend a call
+    to have a category guessed for it and would let a hallucinated score bury it.
+    Score 4 clears every configured threshold (defaults are 3 and 4).
+    """
+    since = f" Last good fetch: {last_success[:10]}." if last_success else " No successful fetch on record."
+    return {
+        "company": company,
+        "signal_type": "monitor_health",
+        "source": url,
+        "alert": "daily",
+        "raw_diff": (
+            f"MONITOR DOWN: {failures} consecutive failed fetches ({reason}).{since} "
+            f"No messaging signal has been collected from this URL since. "
+            f"An empty change history for it means we are not looking, not that nothing changed."
+        ),
+        "haiku_category": "monitor_health",
+        "haiku_score": 4,
+        "haiku_summary": (
+            f"Monitoring for {url} has failed {failures} runs in a row ({reason}). "
+            f"Competitive intel from this page is stale, not quiet."
+        ),
+    }
 
 
 # Fragments matching any of these are cookie/consent boilerplate, not signal.
@@ -172,6 +269,9 @@ def check_messaging(company: str, base_url: str, pages: list[dict]) -> list[dict
             url_path = page_config["url"]
             full_url = base_url.rstrip("/") + url_path
             alert_level = page_config.get("alert", "daily")
+            # Resolved before the fetch so both failure paths below can record
+            # against it, including an exception raised by goto() itself.
+            snapshot_path = _snapshot_path(company, full_url)
 
             try:
                 page = context.new_page()
@@ -181,18 +281,24 @@ def check_messaging(company: str, base_url: str, pages: list[dict]) -> list[dict
                 text = _extract_text(page)
 
                 # A CDN/WAF error page is a failed fetch dressed as content.
-                # Skip without saving so the good baseline is preserved.
+                # Skip without saving so the good baseline is preserved, but
+                # count it: a page that errors forever must not read as silence.
                 if _is_error_page(text):
-                    print(f"[messaging] error page for {full_url}, skipping")
+                    failures = _record_failure(snapshot_path, "CDN or WAF error page")
+                    print(f"[messaging] error page for {full_url}, skipping ({failures} in a row)")
+                    if _should_warn(failures):
+                        events.append(_monitor_health_event(
+                            company, full_url, failures, "CDN or WAF error page",
+                            (_load_snapshot(snapshot_path) or {}).get("last_success"),
+                        ))
                     page.close()
                     continue
 
                 content_hash = hashlib.md5(text.encode()).hexdigest()
-                snapshot_path = _snapshot_path(company, full_url)
                 previous = _load_snapshot(snapshot_path)
 
-                if previous is None:
-                    # First run — save baseline, no event
+                if not _has_baseline(previous):
+                    # First usable fetch — save baseline, no event
                     _save_snapshot(snapshot_path, text, content_hash)
                 elif previous["hash"] != content_hash:
                     diff = _diff_text(previous["content"], text)
@@ -213,7 +319,16 @@ def check_messaging(company: str, base_url: str, pages: list[dict]) -> list[dict
                 page.close()
 
             except Exception as e:
-                print(f"[messaging] failed {full_url}: {e}")
+                # A timeout or navigation error is the same class of problem as an
+                # error page: the monitor did not work. Count it the same way, or a
+                # URL that times out every single run stays invisible.
+                failures = _record_failure(snapshot_path, "fetch error")
+                print(f"[messaging] failed {full_url}: {e} ({failures} in a row)")
+                if _should_warn(failures):
+                    events.append(_monitor_health_event(
+                        company, full_url, failures, f"fetch error: {type(e).__name__}",
+                        (_load_snapshot(snapshot_path) or {}).get("last_success"),
+                    ))
                 continue
 
         browser.close()

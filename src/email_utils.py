@@ -17,6 +17,9 @@ CATEGORY_LABELS = {
     "review": "REVIEW ACTIVITY",
     "competitive_positioning": "COMPETITIVE POSITIONING",
     "press": "PRESS / ANALYST",
+    # Not a competitor move. Our own collection is broken, and the label says so
+    # rather than letting it read as another piece of intel.
+    "monitor_health": "MONITOR DOWN",
 }
 
 

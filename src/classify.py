@@ -15,6 +15,11 @@ CATEGORIES = [
     "review",
     "competitive_positioning",
     "press",
+    # Not a competitor move: a fact about our own collection. Emitted pre-scored
+    # by signals/messaging.py when a monitored URL fails repeatedly, and passed
+    # through classify() untouched. Listed here so downstream consumers that
+    # validate against CATEGORIES do not treat it as unknown.
+    "monitor_health",
 ]
 
 # Keyword rules for fallback classification when no AI API key is set
@@ -166,6 +171,13 @@ def classify(event: dict, watch_keywords: list[str]) -> dict:
     """
     text = event.get("raw_diff", "")
     signal_type = event.get("signal_type", "")
+
+    # Some events arrive already classified because their category and score are
+    # deterministic facts rather than judgments -- monitor_health is the first.
+    # Sending one to the model would spend a call to guess something we already
+    # know, and would let a low hallucinated score bury an alert that matters.
+    if event.get("haiku_score") is not None and event.get("haiku_category"):
+        return event
 
     if os.environ.get("GEMINI_API_KEY"):
         try:
