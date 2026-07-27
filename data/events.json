@@ -16731,5 +16731,41 @@
     "haiku_category": "competitive_positioning",
     "haiku_score": 3,
     "haiku_summary": "IBM updated the OpenPages GRC landing page to feature logos from major enterprise clients Citi and Navigator Gas, signaling a renewed focus on leveraging high-profile social proof to reinforce its market authority in AI-driven governance, risk, and compliance."
+  },
+  {
+    "event_id": "5c6a5699-567d-40ce-8c72-1f6cd2ca33e4",
+    "timestamp": "2026-07-27T16:57:18.977549+00:00",
+    "run_id": "30286886322",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 42% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 40% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "5c63ed984555147cb4aee212b812a4ff",
+    "current_hash": "d6645adac4926c12267a4b7e6a11599b",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 1,
+    "haiku_summary": "The website content shows a negligible percentage shift in a progress or loading indicator, which is a technical artifact and not a substantive change in product or market positioning."
+  },
+  {
+    "event_id": "b672b679-7c25-4d4c-b9ca-8eaafb45e672",
+    "timestamp": "2026-07-27T16:57:19.645327+00:00",
+    "run_id": "30286886322",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: 41% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 37% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "19a4e34e0fc35573070747f1b8b2ea12",
+    "current_hash": "67ca7e64a515e48edfbe067599211708",
+    "include_in_digest": true,
+    "haiku_category": "monitor_health",
+    "haiku_score": 1,
+    "haiku_summary": "The detected change consists of minor adjustments to estimated loading times within the website's interface, which does not constitute a substantive shift in product positioning or messaging."
   }
 ]
