@@ -19238,5 +19238,41 @@
     "haiku_category": "messaging",
     "haiku_score": 3,
     "haiku_summary": "IBM updated its OpenPages GRC landing page to increase the focus on AI-driven capabilities by including visual assets such as an \"I love AI\" sign and specific illustrations depicting embedded AI functionality, signaling a move to prioritize AI-led GRC positioning."
+  },
+  {
+    "event_id": "dd98d4f5-d8f0-4446-ab00-29fc1894e467",
+    "timestamp": "2026-08-10T15:59:21.740782+00:00",
+    "run_id": "31406341646",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 39% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 43% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "e81ad94221acaf0ed15f96175f9f123c",
+    "current_hash": "9bc87c9cd24d3d06c9b5768d9a07c14c",
+    "include_in_digest": true,
+    "haiku_category": "monitor_health",
+    "haiku_score": 1,
+    "haiku_summary": "The company updated a non-substantive loading progress percentage indicator, which does not represent a change in product messaging or strategy."
+  },
+  {
+    "event_id": "7569ab27-7832-4fb7-814a-ccaab0a464aa",
+    "timestamp": "2026-08-10T15:59:23.170893+00:00",
+    "run_id": "31406341646",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: 49% Estimated time remaining: 2s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 45% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "fbe51bddb43ee5ab3b49ee320821ad69",
+    "current_hash": "5cbf18af14988b8de993e90046051faa",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 1,
+    "haiku_summary": "The change consists solely of minor numerical fluctuations in a progress indicator or UI element that do not reflect a substantive shift in the company's messaging or product positioning."
   }
 ]
