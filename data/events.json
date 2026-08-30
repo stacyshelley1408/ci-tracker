@@ -20933,5 +20933,41 @@
     "haiku_category": "messaging",
     "haiku_score": 3,
     "haiku_summary": "IBM updated the visual assets on the OpenPages GRC landing page, specifically adding imagery highlighting \"I love AI\" messaging and illustrations of embedded AI capabilities, signaling a strategic push to emphasize AI-driven risk and compliance features to prospective customers."
+  },
+  {
+    "event_id": "5ddca5c5-fb87-45f3-89db-f6cc0c3d7e15",
+    "timestamp": "2026-08-30T18:25:52.383680+00:00",
+    "run_id": "33327913745",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 51% Estimated time remaining: 2s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 38% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "6c45640169b8d83f9c316e2b7dc5a372",
+    "current_hash": "bb001efdfb539e3baf5ccbe0ef65d7a9",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 1,
+    "haiku_summary": "The website updated loading/status text associated with modular use cases, which represents a technical or UI artifact rather than a substantive change to the company's GRC or Watson-related messaging."
+  },
+  {
+    "event_id": "676e9442-7369-40cf-a833-59df7e7f05d7",
+    "timestamp": "2026-08-30T18:25:56.338622+00:00",
+    "run_id": "33327913745",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: 40% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 41% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "59d192d45d7ba855c1e35e89daa89981",
+    "current_hash": "449dbda1d4e53389b17cfd133fb73c4f",
+    "include_in_digest": true,
+    "haiku_category": "monitor_health",
+    "haiku_score": 1,
+    "haiku_summary": "The website text remained identical, with the detected change being an insignificant 1% fluctuation in a loading bar estimation or dynamic UI element that does not reflect a strategic messaging shift."
   }
 ]
