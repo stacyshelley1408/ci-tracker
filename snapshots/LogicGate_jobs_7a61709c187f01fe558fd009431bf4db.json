@@ -49,199 +49,199 @@
   },
   {
     "title": "Risk Cloud Platform",
-    "url": "https://www.logicgate.com/platform/"
+    "url": "https://www.logicgate.ai/platform/"
   },
   {
     "title": "AI & Agents",
-    "url": "https://www.logicgate.com/platform/ai-agents"
+    "url": "https://www.logicgate.ai/platform/ai-agents"
   },
   {
     "title": "Config Newton",
-    "url": "https://www.logicgate.com/platform/config-newton"
+    "url": "https://www.logicgate.ai/platform/config-newton"
   },
   {
     "title": "Applications",
-    "url": "https://www.logicgate.com/platform/applications/"
+    "url": "https://www.logicgate.ai/platform/applications/"
   },
   {
     "title": "Integrations",
-    "url": "https://www.logicgate.com/platform/integrations/"
+    "url": "https://www.logicgate.ai/platform/integrations/"
   },
   {
     "title": "Automated Control Testing",
-    "url": "https://www.logicgate.com/platform/features/automated-evidence-monitoring/"
+    "url": "https://www.logicgate.ai/platform/features/automated-control-testing/"
   },
   {
     "title": "No-Code, Flexible Graph Database",
-    "url": "https://www.logicgate.com/platform/features/no-code-graph-database/"
+    "url": "https://www.logicgate.ai/platform/features/no-code-graph-database/"
   },
   {
-    "title": "Spark AI",
-    "url": "https://www.logicgate.com/platform/features/spark-ai/"
+    "title": "LogicGate AI",
+    "url": "https://www.logicgate.ai/platform/features/logicgate-ai/"
   },
   {
     "title": "Reporting & Analytics",
-    "url": "https://www.logicgate.com/platform/features/reporting-and-analytics/"
+    "url": "https://www.logicgate.ai/platform/features/reporting-and-analytics/"
   },
   {
     "title": "Risk Cloud Quantify",
-    "url": "https://www.logicgate.com/platform/features/risk-cloud-quantify/"
+    "url": "https://www.logicgate.ai/platform/features/risk-cloud-quantify/"
   },
   {
     "title": "Value Realization Tool",
-    "url": "https://www.logicgate.com/platform/features/value-realization-tool/"
+    "url": "https://www.logicgate.ai/platform/features/value-realization-tool/"
   },
   {
     "title": "Workflow Automation",
-    "url": "https://www.logicgate.com/platform/features/workflow-automation/"
+    "url": "https://www.logicgate.ai/platform/features/workflow-automation/"
   },
   {
     "title": "Banking Solution",
-    "url": "https://www.logicgate.com/platform/suites/banking-solution/"
+    "url": "https://www.logicgate.ai/platform/suites/banking-solution/"
   },
   {
     "title": "Cyber Risk Management",
-    "url": "https://www.logicgate.com/platform/suites/cyber-risk-management/"
+    "url": "https://www.logicgate.ai/platform/suites/cyber-risk-management/"
   },
   {
     "title": "Operational Risk Management Suite",
-    "url": "https://www.logicgate.com/platform/suites/operational-risk-management/"
+    "url": "https://www.logicgate.ai/platform/suites/operational-risk-management/"
   },
   {
     "title": "DORA Compliance",
-    "url": "https://www.logicgate.com/platform/suites/dora-compliance/"
+    "url": "https://www.logicgate.ai/platform/suites/dora-compliance/"
   },
   {
     "title": "ISO 27001-2",
-    "url": "https://www.logicgate.com/platform/frameworks/iso-27001-2/"
+    "url": "https://www.logicgate.ai/platform/frameworks/iso-27001-2/"
   },
   {
     "title": "PCI DSS",
-    "url": "https://www.logicgate.com/platform/frameworks/pci-dss/"
+    "url": "https://www.logicgate.ai/platform/frameworks/pci-dss/"
   },
   {
     "title": "SOC 2 TSC",
-    "url": "https://www.logicgate.com/platform/frameworks/soc-2/"
+    "url": "https://www.logicgate.ai/platform/frameworks/soc-2/"
   },
   {
     "title": "NIST CSF",
-    "url": "https://www.logicgate.com/platform/frameworks/nist/"
+    "url": "https://www.logicgate.ai/platform/frameworks/nist/"
   },
   {
     "title": "HIPAA",
-    "url": "https://www.logicgate.com/platform/frameworks/hipaa/"
+    "url": "https://www.logicgate.ai/platform/frameworks/hipaa/"
   },
   {
     "title": "NIST 800-53",
-    "url": "https://www.logicgate.com/platform/frameworks/nist-800-53/"
+    "url": "https://www.logicgate.ai/platform/frameworks/nist-800-53/"
   },
   {
     "title": "Solutions Overview",
-    "url": "https://www.logicgate.com/solutions/"
+    "url": "https://www.logicgate.ai/solutions/"
   },
   {
     "title": "Risk Management",
-    "url": "https://www.logicgate.com/solutions/team/risk-management/"
+    "url": "https://www.logicgate.ai/solutions/team/risk-management/"
   },
   {
     "title": "Cybersecurity",
-    "url": "https://www.logicgate.com/solutions/team/cybersecurity/"
+    "url": "https://www.logicgate.ai/solutions/team/cybersecurity/"
   },
   {
     "title": "Compliance & Audit",
-    "url": "https://www.logicgate.com/solutions/team/compliance-and-audit/"
+    "url": "https://www.logicgate.ai/solutions/team/compliance-and-audit/"
   },
   {
     "title": "AI Governance",
-    "url": "https://www.logicgate.com/solutions/ai-governance/"
+    "url": "https://www.logicgate.ai/solutions/ai-governance/"
   },
   {
     "title": "Policy Management",
-    "url": "https://www.logicgate.com/solutions/policy-management/"
+    "url": "https://www.logicgate.ai/solutions/policy-management/"
   },
   {
     "title": "Enterprise Risk Management",
-    "url": "https://www.logicgate.com/solutions/enterprise-risk-management/"
+    "url": "https://www.logicgate.ai/solutions/enterprise-risk-management/"
   },
   {
     "title": "Third-Party Risk Management",
-    "url": "https://www.logicgate.com/solutions/third-party-risk-management/"
+    "url": "https://www.logicgate.ai/solutions/third-party-risk-management/"
   },
   {
     "title": "Operational Risk Management",
-    "url": "https://www.logicgate.com/solutions/operational-risk-management/"
+    "url": "https://www.logicgate.ai/solutions/operational-risk-management/"
   },
   {
     "title": "Operational Resilience",
-    "url": "https://www.logicgate.com/solutions/operational-resilience/"
+    "url": "https://www.logicgate.ai/solutions/operational-resilience/"
   },
   {
     "title": "Controls Compliance",
-    "url": "https://www.logicgate.com/solutions/controls-compliance/"
+    "url": "https://www.logicgate.ai/solutions/controls-compliance/"
   },
   {
     "title": "Regulatory Compliance Management",
-    "url": "https://www.logicgate.com/solutions/regulatory-compliance-management/"
+    "url": "https://www.logicgate.ai/solutions/regulatory-compliance-management/"
   },
   {
     "title": "Data Privacy",
-    "url": "https://www.logicgate.com/solutions/data-privacy/"
+    "url": "https://www.logicgate.ai/solutions/data-privacy/"
   },
   {
     "title": "Internal Audit",
-    "url": "https://www.logicgate.com/solutions/internal-audit/"
+    "url": "https://www.logicgate.ai/solutions/internal-audit/"
   },
   {
     "title": "Financial Services",
-    "url": "https://www.logicgate.com/industries/financial-services/"
+    "url": "https://www.logicgate.ai/industries/financial-services/"
   },
   {
     "title": "Insurance",
-    "url": "https://www.logicgate.com/industries/insurance/"
+    "url": "https://www.logicgate.ai/industries/insurance/"
   },
   {
     "title": "Retail",
-    "url": "https://www.logicgate.com/industries/retail/"
+    "url": "https://www.logicgate.ai/industries/retail/"
   },
   {
     "title": "Healthcare",
-    "url": "https://www.logicgate.com/industries/healthcare/"
+    "url": "https://www.logicgate.ai/industries/healthcare/"
   },
   {
     "title": "Manufacturing",
-    "url": "https://www.logicgate.com/industries/manufacturing/"
+    "url": "https://www.logicgate.ai/industries/manufacturing/"
   },
   {
     "title": "Software & Technology",
-    "url": "https://www.logicgate.com/industries/software-and-technology/"
+    "url": "https://www.logicgate.ai/industries/software-and-technology/"
   },
   {
     "title": "Media & Telecom",
-    "url": "https://www.logicgate.com/industries/media-and-telecom/"
+    "url": "https://www.logicgate.ai/industries/media-and-telecom/"
   },
   {
     "title": "Energy & Utilities",
-    "url": "https://www.logicgate.com/industries/energy-and-utilities/"
+    "url": "https://www.logicgate.ai/industries/energy-and-utilities/"
   },
   {
     "title": "Business Services",
-    "url": "https://www.logicgate.com/industries/business-services/"
+    "url": "https://www.logicgate.ai/industries/business-services/"
   },
   {
     "title": "Resource Library",
-    "url": "https://www.logicgate.com/resources/"
+    "url": "https://www.logicgate.ai/resources/"
   },
   {
     "title": "Reports",
-    "url": "https://www.logicgate.com/resources/reports/"
+    "url": "https://www.logicgate.ai/resources/reports/"
   },
   {
     "title": "Customer Stories",
-    "url": "https://www.logicgate.com/resources/customer-stories/"
+    "url": "https://www.logicgate.ai/resources/customer-stories/"
   },
   {
     "title": "Webinars",
-    "url": "https://www.logicgate.com/resources/webinar/"
+    "url": "https://www.logicgate.ai/resources/webinar/"
   },
   {
     "title": "GRC & Me Podcast",
@@ -249,15 +249,15 @@
   },
   {
     "title": "Newsroom",
-    "url": "https://www.logicgate.com/news/"
+    "url": "https://www.logicgate.ai/news/"
   },
   {
     "title": "Upcoming Events",
-    "url": "https://www.logicgate.com/events/"
+    "url": "https://www.logicgate.ai/events/"
   },
   {
     "title": "Risk Cloud Exchange",
-    "url": "https://www.logicgate.com/risk-cloud-exchange/"
+    "url": "https://www.logicgate.ai/risk-cloud-exchange/"
   },
   {
     "title": "Risk Cloud Help Center",
@@ -265,7 +265,7 @@
   },
   {
     "title": "Developer Portal",
-    "url": "https://www.logicgate.com/developer/"
+    "url": "https://www.logicgate.ai/developer/"
   },
   {
     "title": "LogicGate Learning",
@@ -273,35 +273,35 @@
   },
   {
     "title": "Why LogicGate",
-    "url": "https://www.logicgate.com/company/why-logicgate/"
+    "url": "https://www.logicgate.ai/company/why-logicgate/"
   },
   {
     "title": "Trust & Security",
-    "url": "https://www.logicgate.com/trust/"
+    "url": "https://www.logicgate.ai/trust/"
   },
   {
     "title": "Services & Support",
-    "url": "https://www.logicgate.com/company/services-and-support/"
+    "url": "https://www.logicgate.ai/company/services-and-support/"
   },
   {
     "title": "Pricing",
-    "url": "https://www.logicgate.com/platform/pricing/"
+    "url": "https://www.logicgate.ai/platform/pricing/"
   },
   {
     "title": "Leadership",
-    "url": "https://www.logicgate.com/company/leadership/"
+    "url": "https://www.logicgate.ai/company/leadership/"
   },
   {
     "title": "Careers",
-    "url": "https://www.logicgate.com/company/careers/"
+    "url": "https://www.logicgate.ai/company/careers/"
   },
   {
     "title": "Partners",
-    "url": "https://www.logicgate.com/company/partners/"
+    "url": "https://www.logicgate.ai/company/partners/"
   },
   {
     "title": "Learn More",
-    "url": "https://www.logicgate.com/resources/reports/gartner-magic-quadrant-for-grc-tools-assurance-leaders/"
+    "url": "https://www.logicgate.ai/resources/reports/gartner-magic-quadrant-for-grc-tools-assurance-leaders/"
   },
   {
     "title": "Request a Demo",
@@ -309,7 +309,7 @@
   },
   {
     "title": "Company",
-    "url": "https://www.logicgate.com/company/"
+    "url": "https://www.logicgate.ai/company/"
   },
   {
     "title": "Find a Role",
@@ -317,59 +317,59 @@
   },
   {
     "title": "Read the Report",
-    "url": "https://www.logicgate.com/resources/the-logicgate-experience-report-2026/"
+    "url": "https://www.logicgate.ai/resources/the-logicgate-experience-report-2026/"
   },
   {
     "title": "Platform",
-    "url": "#togglelistb3dca73e-242e-4566-8eff-b672197d90b9"
+    "url": "#togglelist081b9fe9-52aa-42a7-93d4-4c1013bee0bb"
   },
   {
     "title": "Features",
-    "url": "https://www.logicgate.com/platform/features/"
+    "url": "https://www.logicgate.ai/platform/features/"
   },
   {
     "title": "Frameworks",
-    "url": "https://www.logicgate.com/platform/frameworks/"
+    "url": "https://www.logicgate.ai/platform/frameworks/"
   },
   {
     "title": "Solutions",
-    "url": "#togglelistca508fc8-5c3a-4718-b4e9-28ba0b1b9635"
+    "url": "#toggleliste8739894-9d37-4b82-9597-c44939b4eaac"
   },
   {
     "title": "Regulatory Compliance",
-    "url": "https://www.logicgate.com/solutions/regulatory-compliance-management/"
+    "url": "https://www.logicgate.ai/solutions/regulatory-compliance-management/"
   },
   {
     "title": "Resources",
-    "url": "#togglelist032f80f1-af46-4ddc-8dd1-826728ef82cd"
+    "url": "#togglelist1793a789-4c43-4d1d-bd29-bb1ddbc3aca1"
   },
   {
     "title": "Resources Library",
-    "url": "https://www.logicgate.com/resources/"
+    "url": "https://www.logicgate.ai/resources/"
   },
   {
     "title": "Customer Resources",
-    "url": "https://www.logicgate.com/customer-resources/"
+    "url": "https://www.logicgate.ai/customer-resources/"
   },
   {
     "title": "Information Security",
-    "url": "https://www.logicgate.com/information-security-measures/"
+    "url": "https://www.logicgate.ai/information-security-measures/"
   },
   {
     "title": "Email Preferences",
-    "url": "https://www2.logicgate.com/update-your-preferences?epc_hash=IouphpHrIEqY6twk6KJ36QB8czuHINqovwT2A7A0Gyc"
+    "url": "https://www2.logicgate.com/update-your-preferences?epc_hash=IouphpHrIEqY6twk6KJ36QB8czuHINqovwT2A7A0Gyc&_gl=1*drzul4*_gcl_au*MzA1MDMxNDMuMTc4NjYwMjc5OS4tLi0uMTc4NjYwMjc5OC4xNjE4ODkzMzAxLjE3ODc5MjU1MjkuMTc4NzkyNTUyOQ..*_ga*MTQ1NzE3NjU3OC4xNzg2NjAyNzk5*_ga_FZS6YS23D0*czE3ODc5MjU1MjkkbzEwJGcwJHQxNzg3OTI1NTMwJGo1OSRsMCRoNTUzMDQ3Nzg5"
   },
   {
     "title": "No-Code, Graph Database",
-    "url": "https://www.logicgate.com/platform/features/no-code-graph-database/"
+    "url": "https://www.logicgate.ai/platform/features/no-code-graph-database/"
   },
   {
     "title": "Risk Cloud Quantify\u00ae",
-    "url": "https://www.logicgate.com/platform/features/risk-cloud-quantify/"
+    "url": "https://www.logicgate.ai/platform/features/risk-cloud-quantify/"
   },
   {
     "title": "View All Features",
-    "url": "https://www.logicgate.com/platform/features/"
+    "url": "https://www.logicgate.ai/platform/features/"
   },
   {
     "title": "Application Suites",
@@ -377,7 +377,7 @@
   },
   {
     "title": "View All Frameworks",
-    "url": "https://www.logicgate.com/platform/frameworks/"
+    "url": "https://www.logicgate.ai/platform/frameworks/"
   },
   {
     "title": "By Category",
@@ -393,15 +393,15 @@
   },
   {
     "title": "View All Industries",
-    "url": "https://www.logicgate.com/industries/"
+    "url": "https://www.logicgate.ai/industries/"
   },
   {
     "title": "View All Resources",
-    "url": "https://www.logicgate.com/resources/"
+    "url": "https://www.logicgate.ai/resources/"
   },
   {
     "title": "View All Customer Resources",
-    "url": "https://www.logicgate.com/customer-resources/"
+    "url": "https://www.logicgate.ai/customer-resources/"
   },
   {
     "title": "ReportGartner\u00ae Magic Quadrant\u2122 for GRC Tools, Assurance\u00a0LeadersLearn More",
