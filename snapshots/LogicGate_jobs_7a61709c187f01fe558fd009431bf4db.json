@@ -13,7 +13,11 @@
   },
   {
     "title": "Privacy Policy",
-    "url": "https://www.logicgate.com/privacy-policy/"
+    "url": "https://www.logicgate.ai/privacy-policy/"
+  },
+  {
+    "title": "[#DSR_FORM_URL_TEXT#]",
+    "url": "[#DSR_FORM_URL#]"
   },
   {
     "title": "Cookie Policy",
@@ -38,6 +42,10 @@
   {
     "title": "Cookiebot",
     "url": "https://www.cookiebot.com"
+  },
+  {
+    "title": "Privacy Policy.",
+    "url": "https://www.logicgate.ai/privacy-policy/"
   },
   {
     "title": "instructions how to enable JavaScript in your web browser",
@@ -321,7 +329,7 @@
   },
   {
     "title": "Platform",
-    "url": "#togglelist081b9fe9-52aa-42a7-93d4-4c1013bee0bb"
+    "url": "#togglelist9d707092-46f2-4448-bd94-38f65da1bf38"
   },
   {
     "title": "Features",
@@ -333,7 +341,7 @@
   },
   {
     "title": "Solutions",
-    "url": "#toggleliste8739894-9d37-4b82-9597-c44939b4eaac"
+    "url": "#togglelist147df02a-3ad2-4898-9f94-da285749fc0e"
   },
   {
     "title": "Regulatory Compliance",
@@ -341,7 +349,7 @@
   },
   {
     "title": "Resources",
-    "url": "#togglelist1793a789-4c43-4d1d-bd29-bb1ddbc3aca1"
+    "url": "#togglelistc0e14f2d-6cff-4a18-b924-277584433653"
   },
   {
     "title": "Resources Library",
@@ -357,7 +365,7 @@
   },
   {
     "title": "Email Preferences",
-    "url": "https://www2.logicgate.com/update-your-preferences?epc_hash=IouphpHrIEqY6twk6KJ36QB8czuHINqovwT2A7A0Gyc&_gl=1*drzul4*_gcl_au*MzA1MDMxNDMuMTc4NjYwMjc5OS4tLi0uMTc4NjYwMjc5OC4xNjE4ODkzMzAxLjE3ODc5MjU1MjkuMTc4NzkyNTUyOQ..*_ga*MTQ1NzE3NjU3OC4xNzg2NjAyNzk5*_ga_FZS6YS23D0*czE3ODc5MjU1MjkkbzEwJGcwJHQxNzg3OTI1NTMwJGo1OSRsMCRoNTUzMDQ3Nzg5"
+    "url": "https://www2.logicgate.ai/update-your-preferences?epc_hash=IouphpHrIEqY6twk6KJ36QB8czuHINqovwT2A7A0Gyc&_gl=1*nk569x*_gcl_au*MTYwMjA3MDQyMi4xNzg3NTY4MDY3Li0uLS4xNzg3NTY4MDY3LjE4MTI4NjExODAuMTc4ODI1MzAyNy4xNzg4MzI3ODMx*_ga*NjQyNzIwODg2LjE3ODc1NjgwNjc.*_ga_FZS6YS23D0*czE3ODgzMjc1MjUkbzIzJGcxJHQxNzg4MzI3OTIwJGo1OCRsMCRoMTg5NTQ5OTQwMQ.."
   },
   {
     "title": "No-Code, Graph Database",
