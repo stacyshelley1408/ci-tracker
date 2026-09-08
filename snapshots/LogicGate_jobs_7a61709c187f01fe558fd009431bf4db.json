@@ -1,53 +1,5 @@
 [
   {
-    "title": "Consent",
-    "url": "#"
-  },
-  {
-    "title": "Details",
-    "url": "#"
-  },
-  {
-    "title": "[#IABV2SETTINGS#]",
-    "url": "#"
-  },
-  {
-    "title": "Privacy Policy",
-    "url": "https://www.logicgate.ai/privacy-policy/"
-  },
-  {
-    "title": "[#DSR_FORM_URL_TEXT#]",
-    "url": "[#DSR_FORM_URL#]"
-  },
-  {
-    "title": "Cookie Policy",
-    "url": "#"
-  },
-  {
-    "title": "logicgate.ai",
-    "url": "https://logicgate.ai"
-  },
-  {
-    "title": "agility.logicgate.com",
-    "url": "https://agility.logicgate.com"
-  },
-  {
-    "title": "rcx.logicgate.com",
-    "url": "https://rcx.logicgate.com"
-  },
-  {
-    "title": "logicgate.com",
-    "url": "https://logicgate.com"
-  },
-  {
-    "title": "Cookiebot",
-    "url": "https://www.cookiebot.com"
-  },
-  {
-    "title": "Privacy Policy.",
-    "url": "https://www.logicgate.ai/privacy-policy/"
-  },
-  {
     "title": "instructions how to enable JavaScript in your web browser",
     "url": "https://www.enable-javascript.com"
   },
@@ -358,6 +310,10 @@
   {
     "title": "Customer Resources",
     "url": "https://www.logicgate.ai/customer-resources/"
+  },
+  {
+    "title": "Privacy Policy",
+    "url": "https://www.logicgate.ai/privacy-policy/"
   },
   {
     "title": "Information Security",
