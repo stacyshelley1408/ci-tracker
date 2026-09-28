@@ -25494,5 +25494,41 @@
     "haiku_category": "hiring",
     "haiku_score": 4,
     "haiku_summary": "By Frameworks is hiring, which suggests potential expansion or team development that should be monitored for alignment with GRC and compliance sector growth."
+  },
+  {
+    "event_id": "99b48f50-ae6a-4bf6-81f4-5edb8ffbf82e",
+    "timestamp": "2026-09-28T21:05:23.406341+00:00",
+    "run_id": "36483416562",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 45% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 41% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "99184a518460aa22d60aeee9549738c6",
+    "current_hash": "50a8176b42996c873779e8f4dd96f8b5",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 1,
+    "haiku_summary": "The detected change consists of identical text being cycled through a status indicator or loading element, representing a technical or formatting artifact rather than a substantive shift in positioning or product strategy."
+  },
+  {
+    "event_id": "ec5d73d1-6533-477b-867f-1fa99130580a",
+    "timestamp": "2026-09-28T21:05:25.622710+00:00",
+    "run_id": "36483416562",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: 46% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 44% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "29f981b3fe77de2cac47d9d391079b08",
+    "current_hash": "b65b9426e7432458ecf71065707bfc96",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 2,
+    "haiku_summary": "The website updated its percentage-based loading status text, which represents a minor UI/boilerplate change rather than a substantive shift in positioning or messaging regarding its GRC and AI capabilities."
   }
 ]
