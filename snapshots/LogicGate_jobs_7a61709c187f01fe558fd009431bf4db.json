@@ -116,7 +116,7 @@
     "url": "https://www.logicgate.ai/platform/features/reporting-and-analytics/"
   },
   {
-    "title": "Risk Cloud Quantify",
+    "title": "Risk Cloud Quantify\u00ae",
     "url": "https://www.logicgate.ai/platform/features/risk-cloud-quantify/"
   },
   {
@@ -256,6 +256,10 @@
     "url": "https://www.logicgate.ai/company/careers/"
   },
   {
+    "title": "Pricing",
+    "url": "https://www.logicgate.ai/platform/pricing/"
+  },
+  {
     "title": "Leadership",
     "url": "https://www.logicgate.ai/company/leadership/"
   },
@@ -322,10 +326,6 @@
   {
     "title": "Features",
     "url": "#"
-  },
-  {
-    "title": "Risk Cloud Quantify\u00ae",
-    "url": "https://www.logicgate.ai/platform/features/risk-cloud-quantify/"
   },
   {
     "title": "View All Features",
