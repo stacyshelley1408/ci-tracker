@@ -27073,5 +27073,41 @@
     "haiku_category": "messaging",
     "haiku_score": 4,
     "haiku_summary": "LogicGate has updated its web assets to emphasize the launch of \"GRC Agents,\" signaling a strategic pivot toward generative AI-driven automation within their Risk Cloud platform."
+  },
+  {
+    "event_id": "814c21ca-662e-41c4-ac5a-944efef41099",
+    "timestamp": "2026-10-04T18:32:52.863588+00:00",
+    "run_id": "37224706434",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 45% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 43% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "feb08aeb9eccfb61408445c101d7d26f",
+    "current_hash": "68a361c3902e27a89bd5ea3d290dd893",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 1,
+    "haiku_summary": "The signal reflects a negligible change in a percentage value (43% to 45%) within a non-substantive UI element, representing no meaningful shift in strategy or product positioning."
+  },
+  {
+    "event_id": "7a162a60-d3e8-4b9b-ba2c-23b3cc04c101",
+    "timestamp": "2026-10-04T18:32:55.400438+00:00",
+    "run_id": "37224706434",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: 46% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment | Book live demo Explore more Documentation IBM GRC community Products Consulting services Industries Case studies Financing Research LinkedIn X Instagram YouTube Podcasts Business partners Documentation Events Newsletters Support TechXchange community Overview Careers Investor relations Leadership Newsroom Security, privacy and trust Contact IBM Privacy Terms of use Accessibility Your privacy choices [logos/images: A man walking past a \"I love AI\" sign on the wall, Gartner Logo, IDC Logo, Abstract illustration of paper forms lined up, Illustration to represent the embedded AI capabilities of OpenPages GRC, Illustration to depict Enterprise wide GRC capabilities of OpenPages., Illustration of four plants in pot representing how connect GRC to enterprise ecosystem, animation-image, IBM logo, Citi logo, navigator gas logo]\nRemoved: 44% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment | Book live demo Explore more Documentation IBM GRC community Products Consulting services Industries Case studies Financing Research LinkedIn X Instagram YouTube Podcasts Business partners Documentation Events Newsletters Support TechXchange community Overview Careers Investor relations Leadership Newsroom Security, privacy and trust Contact IBM Privacy Terms of use Accessibility [logos/images: A man walking past a \"I love AI\" sign on the wall, Gartner Logo, IDC Logo, Abstract illustration of paper forms lined up, Illustration to represent the embedded AI capabilities of OpenPages GRC, Illustration to depict Enterprise wide GRC capabilities of OpenPages., Illustration of four plants in pot representing how connect GRC to enterprise ecosystem, animation-image, IBM logo, Citi logo, navigator gas logo]",
+    "previous_hash": "7ae7d17409589ac92b209d1888609263",
+    "current_hash": "87298ed51aae43e0ee12257ffd522f1b",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 3,
+    "haiku_summary": "IBM has updated its OpenPages GRC landing page with new visual assets emphasizing embedded AI capabilities and enterprise ecosystem connectivity, signaling a strategic focus on positioning its GRC suite as a central, AI-driven platform."
   }
 ]
