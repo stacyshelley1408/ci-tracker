@@ -77,7 +77,7 @@
   },
   {
     "title": "Community Hub",
-    "url": "https://community.auditboard.com"
+    "url": "https://community.optro.ai/"
   },
   {
     "title": "Events & Webinars",
@@ -89,11 +89,11 @@
   },
   {
     "title": "On-Demand Webinars",
-    "url": "/resources/type/on-demand-webinar"
+    "url": "/resources?type=on-demand-webinar"
   },
   {
     "title": "Ebooks & Whitepapers",
-    "url": "/resources/type/ebook"
+    "url": "/resources?type=ebook"
   },
   {
     "title": "What is Optro?",
@@ -105,7 +105,7 @@
   },
   {
     "title": "Media Coverage",
-    "url": "/news/type/news-coverage"
+    "url": "/news?type=news-coverage"
   },
   {
     "title": "Partners",
@@ -113,7 +113,7 @@
   },
   {
     "title": "Press Releases",
-    "url": "/news/type/press-releases"
+    "url": "/news?type=press-releases"
   },
   {
     "title": "Trust Center",
