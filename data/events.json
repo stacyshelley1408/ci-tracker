@@ -33782,5 +33782,41 @@
     "haiku_category": "messaging",
     "haiku_score": 1,
     "haiku_summary": "The change consists solely of a minor numerical adjustment to an estimated progress percentage, which represents a technical or UI artifact rather than a substantive shift in product positioning or strategic messaging."
+  },
+  {
+    "event_id": "de0065ad-d044-40b5-8da4-ca53b673d833",
+    "timestamp": "2026-10-27T19:54:33.853370+00:00",
+    "run_id": "40572264809",
+    "alerted": true,
+    "in_digest": false,
+    "company": "MetricStream",
+    "signal_type": "messaging_diff",
+    "source": "https://www.metricstream.com/",
+    "alert": "daily",
+    "raw_diff": "Added: [logos/images: metricstream, Gartner, Forrester, IDC, Chartis, Verdantix, Libby Denchfield, Standard Chartered, Fabien Robichon, Zurich Insurance Group, Michael Cover, Blue Cross Blue Shield of Michigan, David Storey, EK Group (Emirates), Ray Whitfield, State Infrastructure Agency, Executives in a boardroom meeting, Chart: 133% three-year ROI with $8.4M benefits and payback inside year one, GRC specialists reviewing dashboards in a meeting room, Illuminated world map showing the global implementation network, Webinar cover: Agentic AI in GRC, eBook cover: the CISO's guide to continuous risk intelligence, eBook cover: building the business case for AI-first GRC, Whitepaper cover: unlocking AI value in GRC, Whitepaper cover: the modern GRC leader's guide, Press release: ranked #1 in enterprise GRC]\nRemoved: [logos/images: metricstream, Gartner, Forrester, IDC, Chartis, Verdantix, Libby Denchfield, Standard Chartered, Standard Chartered headquarters, Fabien Robichon, Zurich Insurance Group, Zurich Insurance Group office building, Michael Cover, Blue Cross Blue Shield of Michigan, Blue Cross Blue Shield of Michigan headquarters, David Storey, EK Group (Emirates), EK Group headquarters, Ray Whitfield, State Infrastructure Agency, State Infrastructure Agency building, Executives in a boardroom meeting, Chart: 133% three-year ROI with $8.4M benefits and payback inside year one, GRC specialists reviewing dashboards in a meeting room, Illuminated world map showing the global implementation network, Webinar cover: Agentic AI in GRC, eBook cover: the CISO's guide to continuous risk intelligence, eBook cover: building the business case for AI-first GRC, Whitepaper cover: unlocking AI value in GRC, Whitepaper cover: the modern GRC leader's guide, Press release: ranked #1 in enterprise GRC]",
+    "previous_hash": "b94f5f640619b63624800d8bffdc1a88",
+    "current_hash": "38ec3af1cf0ca027098d75fbecfed91a",
+    "include_in_digest": true,
+    "haiku_category": "competitive_positioning",
+    "haiku_score": 4,
+    "haiku_summary": "The company significantly pivoted its marketing collateral to emphasize \"Agentic AI\" and \"AI-first GRC,\" moving away from generic corporate imagery and office-centric visuals to prioritize technical thought leadership and quantifiable value propositions regarding AI-driven risk intelligence."
+  },
+  {
+    "event_id": "bac2fc20-c4d9-48d9-a026-388fed3bf88e",
+    "timestamp": "2026-10-27T19:55:45.771386+00:00",
+    "run_id": "40572264809",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 51% Estimated time remaining: 2s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment | Book live demo Explore more Documentation IBM GRC community Your privacy choices [logos/images: A man walking past a \"I love AI\" sign on the wall, Gartner Logo, IDC Logo, Abstract illustration of paper forms lined up, Illustration to represent the embedded AI capabilities of OpenPages GRC, Illustration to depict Enterprise wide GRC capabilities of OpenPages., Illustration of four plants in pot representing how connect GRC to enterprise ecosystem, animation-image, IBM logo, Citi logo, Navigator Gas logo, Zurich logo, Four people standing around a laptop in a glass-walled office, reviewing information together., Person placing a sticky note on a wall covered with handwritten notes while holding a marker., Team in an open-plan office gathered around a presentation board during a collaborative meeting.]\nRemoved: 41% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment | Book live demo Explore more Documentation IBM GRC community [logos/images: A man walking past a \"I love AI\" sign on the wall, Gartner Logo, IDC Logo, Abstract illustration of paper forms lined up, Illustration to represent the embedded AI capabilities of OpenPages GRC, Illustration to depict Enterprise wide GRC capabilities of OpenPages., Illustration of four plants in pot representing how connect GRC to enterprise ecosystem, animation-image, IBM logo, Citi logo, Navigator Gas logo, Zurich logo, Four people standing around a laptop in a glass-walled office, reviewing information together., Person placing a sticky note on a wall covered with handwritten notes while holding a marker., Team in an open-plan office gathered around a presentation board during a collaborative meeting.]",
+    "previous_hash": "5962c6e32b0944043ceb2ec6113a4435",
+    "current_hash": "97b981c0168481538ba6e66d7ba5dc21",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 3,
+    "haiku_summary": "IBM updated the OpenPages GRC landing page to include updated visual assets and client testimonials from Citi, Navigator Gas, and Zurich, reinforcing their enterprise-grade market position and commitment to embedded AI capabilities."
   }
 ]
