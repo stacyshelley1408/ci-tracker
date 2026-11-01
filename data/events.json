@@ -34197,5 +34197,41 @@
     "haiku_category": "competitive_positioning",
     "haiku_score": 5,
     "haiku_summary": "LogicGate has pivoted its messaging to emphasize its recognition as a Leader in both Gartner and Forrester reports while aggressively promoting its new \"GRC Agents\" feature, signaling a strategic shift toward AI-integrated automation to capture enterprise market share."
+  },
+  {
+    "event_id": "9041fd95-2d3c-4a1e-83a5-c052ab4250ce",
+    "timestamp": "2026-11-01T19:23:05.064796+00:00",
+    "run_id": "41341246916",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 50% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 43% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "9cb6c518deb5e8fc4047a93ce24b4d9d",
+    "current_hash": "a71be769c316ac0baf9b90fc9ac3a566",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 2,
+    "haiku_summary": "The website text remained identical, with only an internal performance metadata update (\"Added: 50%\" vs \"Removed: 43%\") that holds no strategic relevance for GRC or AI positioning."
+  },
+  {
+    "event_id": "9900e479-ec52-4280-bbf0-4b0d44759ab8",
+    "timestamp": "2026-11-01T19:23:06.701893+00:00",
+    "run_id": "41341246916",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: 42% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 43% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "9cb6c518deb5e8fc4047a93ce24b4d9d",
+    "current_hash": "699fe166e0132b8602b4b77e3cde89eb",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 1,
+    "haiku_summary": "The change represents a negligible 1% difference in automated system status text, indicating no substantive shift in product positioning or strategic messaging."
   }
 ]
