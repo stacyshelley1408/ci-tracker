@@ -35356,5 +35356,41 @@
     "haiku_category": "competitive_positioning",
     "haiku_score": 5,
     "haiku_summary": "LogicGate has pivoted its messaging to emphasize \"GRC Agents\" and industry analyst leadership from Gartner and Forrester, signaling a strategic focus on AI-driven automation and enterprise-grade validation to capture high-value market segments."
+  },
+  {
+    "event_id": "2383d30f-97a2-4b31-ad80-f04c61b1f993",
+    "timestamp": "2026-11-10T21:12:54.751458+00:00",
+    "run_id": "42902397462",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 42% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 50% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "4d73be8124cc00565724b1774c93f9c6",
+    "current_hash": "2344b43f92ba73827f638bc38747a16c",
+    "include_in_digest": true,
+    "haiku_category": "monitor_health",
+    "haiku_score": 1,
+    "haiku_summary": "The change consists solely of minor adjustments to UI progress percentages for a loading element, which is irrelevant to product positioning or strategy."
+  },
+  {
+    "event_id": "44f801d2-3690-4b82-86a6-ac933d8850a5",
+    "timestamp": "2026-11-10T21:13:11.853438+00:00",
+    "run_id": "42902397462",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: 47% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 43% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "98a665f661d1bfa8551409959090f834",
+    "current_hash": "44c118bc548e99777e10c7da755d61ce",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 2,
+    "haiku_summary": "The company updated a percentage metric from 43% to 47% related to estimated time remaining, which is a minor incremental performance claim rather than a substantive change in product positioning or strategy."
   }
 ]
