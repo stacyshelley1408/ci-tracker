@@ -36941,5 +36941,41 @@
     "haiku_category": "competitive_positioning",
     "haiku_score": 5,
     "haiku_summary": "LogicGate has pivoted its messaging to emphasize agentic AI, specifically launching \"Config Newton\" as an \"Agentic GRC Engineer\" and updating its GRC agents, signaling a major strategic push to integrate autonomous AI into their core GRC platform."
+  },
+  {
+    "event_id": "0b55c674-832e-40b0-95ab-a43099337ef9",
+    "timestamp": "2026-11-27T23:13:44.519843+00:00",
+    "run_id": "46081044079",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages",
+    "alert": "daily",
+    "raw_diff": "Added: 46% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 44% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "93c1cc9a6bfff80c630676c8e9b2a522",
+    "current_hash": "24367c52ba4e73e2f022dec7f8676fda",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 2,
+    "haiku_summary": "The website updated minor status percentages for page loading, which constitutes a non-substantive technical or formatting change rather than a strategic shift in messaging or product positioning."
+  },
+  {
+    "event_id": "0dafd959-e415-49ab-931e-9af9a746912f",
+    "timestamp": "2026-11-27T23:13:46.370164+00:00",
+    "run_id": "46081044079",
+    "alerted": false,
+    "in_digest": false,
+    "company": "IBM OpenPages",
+    "signal_type": "messaging_diff",
+    "source": "https://www.ibm.com/products/openpages-with-watson",
+    "alert": "daily",
+    "raw_diff": "Added: 45% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment\nRemoved: 52% Estimated time remaining: 3s USE CASES Modules Modular solutions built for virtually every use case, all running in one unified environment",
+    "previous_hash": "dfddda992a5c3c0a765ea373dafd0c83",
+    "current_hash": "688718142fd05f52ccb6a7face434c22",
+    "include_in_digest": true,
+    "haiku_category": "messaging",
+    "haiku_score": 2,
+    "haiku_summary": "The website updated its percentage-based loading status text, which represents a minor technical or formatting change rather than a substantive shift in positioning or messaging regarding its GRC and AI-driven OpenPages suite."
   }
 ]
